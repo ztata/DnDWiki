@@ -1,1 +1,100 @@
-<p>race-details works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col">
+            <img src={{this.imageUrl}}>
+        </div>
+        <div class="col"></div>
+    </div>
+    <div class="row mt-3">
+        <div class="col"></div>
+        <div class="col">
+            <h1 class="title text-center title">{{raceDetails.name}}</h1>
+        </div>
+        <div class="col"></div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col text-center">
+            {{introduction}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <mat-accordion class="mx-auto" style="width: 80%">
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>Description</mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <ul>
+                        <li>Speed: {{raceDetails.speed}}</li>
+                        <li>Age: {{raceDetails.age}}</li>
+                        <li>Size: {{raceDetails.size}} - {{raceDetails.size_description}}</li>
+                        <li>Alignment: {{raceDetails.alignment}}</li>
+                    </ul>
+                    {{physicalDescription}}
+                </mat-expansion-panel>
+
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>Languages</mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <ul>
+                        <div *ngFor="let language of raceDetails.languages">
+                            <li>{{language.name}}</li>
+                        </div>
+                    </ul>
+                    <p>{{raceDetails.language_desc}}</p>
+                </mat-expansion-panel>
+
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>Traits</mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <ul>
+                        <div *ngFor="let trait of raceDetails.traits">
+                            <li>{{trait.name}}</li>
+                        </div>
+                    </ul>
+                </mat-expansion-panel>
+
+                <!--ADD NG IF TO TAKE THIS AWAY IF THERE ARE NO SUBRACES-->
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>Starting Proficiencies</mat-panel-title>
+                    </mat-expansion-panel-header>
+                    
+                </mat-expansion-panel>
+
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>Ability Bonus</mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <ul>
+                        <div *ngFor="let bonus of raceDetails.ability_bonuses">
+                            <li>{{bonus.ability_score.name}}</li>
+                            <ul>
+                                <li>Bonus: +{{bonus.bonus}}</li>
+                            </ul>
+                        </div>
+                    </ul>
+                </mat-expansion-panel>
+
+                <!--ADD NG IF TO TAKE THIS AWAY IF THERE ARE NO SUBRACE-->
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>Subraces</mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <ul>
+                        <div *ngFor="let race of raceDetails.subraces">
+                            <li>{{race.name}}</li>
+                        </div>
+                    </ul>
+                </mat-expansion-panel>
+            </mat-accordion>
+        </div>
+    </div>
+</div>
+

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { RacesService } from '../races.service';
+import { Router, ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-race-list',
@@ -7,9 +10,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RaceListComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service: RacesService, private router: Router) { }
+  raceList: any;
 
   ngOnInit(): void {
+    this.service.ReturnRaceList().subscribe(value => (this.raceList = value));
   }
 
 }

@@ -1,1 +1,7 @@
 <p>race-list works!</p>
+
+<ul>
+    <div *ngFor="let race of raceList.results">
+        <li><a [routerLink]="['/raceDetails', race.index]">{{race.index}}</a></li>
+    </div>
+</ul>

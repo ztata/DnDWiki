@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ClassService } from '../class.service';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { ClassExpression } from 'typescript';
-import { waitForAsync } from '@angular/core/testing';
 
 @Component({
   selector: 'app-class-details',
