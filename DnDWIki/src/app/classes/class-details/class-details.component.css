@@ -1,0 +1,14 @@
+img{
+    /* border: 1px red solid; */
+    display: block;
+    margin: auto;
+}
+
+.title{
+    font-family: 'Eagle Lake', cursive;
+}
+
+mat-expansion-panel{
+    margin-bottom: 0.5%;    
+}
+

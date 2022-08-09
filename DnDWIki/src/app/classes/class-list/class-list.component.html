@@ -2,6 +2,6 @@
 
 <ul>
     <div *ngFor="let class of classList.results">
-        <li>{{class.index}}</li>
+        <li><a [routerLink]="['/classDetails', class.index]">{{class.index}}</a></li>
     </div>
 </ul>

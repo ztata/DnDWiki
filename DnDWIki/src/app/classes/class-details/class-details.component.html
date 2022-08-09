@@ -1,0 +1,323 @@
+<div class="container">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col">
+            <img src={{this.imageUrl}}>
+        </div>
+        <div class="col"></div>
+    </div>
+    <div class="row mt-3">
+        <div class="col"></div>
+        <div class="col">
+            <h1 class="title text-center">{{currentClassDetails.name}}</h1>
+            <h4 class="text-center">Hit Die: {{currentClassDetails.hit_die}}</h4>
+        </div>
+        <div class="col"></div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col text-center">
+            <p>{{backstory}}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <mat-accordion class="mx-auto" style="width: 80%">
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            Saving Throws
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <div class="row">
+                        <div class="col">
+                            <h4 class="text-center">Saving Throws</h4>
+                            <ul>
+                                <div *ngFor="let item of currentClassDetails.saving_throws">
+                                    <li>{{item.name}}</li>
+                                </div>
+                            </ul>
+                        </div>
+                       </div>
+                </mat-expansion-panel>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            Proficiencies
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <div class="col">
+                        <h4 class="text-center">Weapon Proficiencies</h4>
+                        <ul class="list-group list-group-flush">
+                            <div *ngFor="let item of currentClassDetails.proficiencies">
+                                <li class="list-group-item">{{item.name}}</li>
+                            </div>
+                        </ul>
+                    </div>
+                    <br>
+                    <div class="col">
+                        <h4 class="text-center">Skill Proficiency Choices - Choose {{currentClassDetails.proficiency_choices[0].choose}}
+                        </h4>
+                        <ul class="list-group list-group-flush">
+                            <div *ngFor="let item of currentClassDetails.proficiency_choices[0].from">
+                                <li class="list-group-item">{{item.name}}</li>
+                            </div>
+                        </ul>
+                    </div>
+                </mat-expansion-panel>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            Starting Equipment                
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <div class="row">
+                        <div class="col">
+                            <h4 class="text-center">Starting Equipment</h4>
+                            <ul class="list-group list-group-flush">
+                                <div *ngFor="let item of currentClassDetails.starting_equipment">
+                                    <li class="list-group-item">{{item.equipment.name}} x {{item.quantity}}</li>
+                                </div>
+                            </ul>
+                        </div>
+                        <div class="col">
+                            <h4 class="text-center">Starting Equipment Options - COME BACK AND FIX THIS</h4>
+                        </div>
+                    </div>
+                </mat-expansion-panel>
+                <mat-expansion-panel *ngIf="currentClassDetails.spellcasting != null">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            Spellcasting
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <div class="row" >
+                        <div class="col ">
+                            <h4 class="text-center">Spellcasting Ability -
+                                {{currentClassDetails.spellcasting.spellcasting_ability.name}}</h4>
+                            <ul>
+                                <div *ngFor="let item of currentClassDetails.spellcasting.info">
+                                    <li>
+                                        {{item.name}}
+                                        <ul>
+                                            <div *ngFor="let x of item.desc">
+                                                <li>{{x}}</li>
+                                            </div>
+                                        </ul>
+                                    </li>
+                                </div>
+                            </ul>
+                        </div>>
+                    </div>
+                    
+                </mat-expansion-panel>
+                <mat-expansion-panel *ngIf="currentClassDetails.spellcasting != null">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            Spell List
+                        </mat-panel-title>
+                        <!--ADD SPELL LIST HERE-->
+                    </mat-expansion-panel-header>
+                    <h1 class="text-center">ADD THE METHOD HERE TO MAKE THE CALL TO RETRIEVE A SPELL LIST</h1>
+                </mat-expansion-panel>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            Level Info 
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <table class="table table-striped text-center">
+                        <thead class="thead-light">
+                            <tr>
+                                <th>Level</th>
+                                <th>Ability Score Bonus</th>
+                                <th>Proficiency Bonus</th>
+                                <th>Features</th>
+                                <th *ngIf="currentClassDetails.spellcasting != null">Cantrips Known</th>
+                                <th *ngIf="currentClassDetails.spellcasting != null">Spells Known</th>
+                                <th *ngIf="currentClassDetails.spellcasting != null">Level 1 Spell Slots</th>
+                                <th *ngIf="currentClassDetails.spellcasting != null">Level 2 Spell Slots</th>
+                                <th *ngIf="currentClassDetails.spellcasting != null">Level 3 Spell Slots</th>
+                                <th *ngIf="currentClassDetails.spellcasting != null">Level 4 Spell Slots</th>
+                                <th *ngIf="currentClassDetails.spellcasting != null">Level 5 Spell Slots</th>
+                                <th *ngIf="currentClassDetails.spellcasting != null">Level 6 Spell Slots</th>
+                                <th *ngIf="currentClassDetails.spellcasting != null">Level 7 Spell Slots</th>
+                                <th *ngIf="currentClassDetails.spellcasting != null">Level 8 Spell Slots</th>
+                                <th *ngIf="currentClassDetails.spellcasting != null">Level 9 Spell Slots</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of classLevelInfo">
+                                <td>{{item.level}}</td>
+                                <td>{{item.ability_score_bonuses}}</td>
+                                <td>{{item.prof_bonus}}</td>
+                                <td>
+                                    <ul>
+                                        <div *ngFor="let x of item.features">
+                                            <li>
+                                                {{x.name}}
+                                            </li>
+                                        </div>
+                                    </ul>
+                                </td>
+                                <td *ngIf="currentClassDetails.spellcasting != null">{{item.spellcasting.cantrips_known}}</td>
+                                <td *ngIf="currentClassDetails.spellcasting != null">{{item.spellcasting.spells_known}}</td>
+                                <td *ngIf="currentClassDetails.spellcasting != null">{{item.spellcasting.spell_slots_level_1}}
+                                </td>
+                                <td *ngIf="currentClassDetails.spellcasting != null">{{item.spellcasting.spell_slots_level_2}}
+                                </td>
+                                <td *ngIf="currentClassDetails.spellcasting != null">{{item.spellcasting.spell_slots_level_3}}
+                                </td>
+                                <td *ngIf="currentClassDetails.spellcasting != null">{{item.spellcasting.spell_slots_level_4}}
+                                </td>
+                                <td *ngIf="currentClassDetails.spellcasting != null">{{item.spellcasting.spell_slots_level_5}}
+                                </td>
+                                <td *ngIf="currentClassDetails.spellcasting != null">{{item.spellcasting.spell_slots_level_6}}
+                                </td>
+                                <td *ngIf="currentClassDetails.spellcasting != null">{{item.spellcasting.spell_slots_level_7}}
+                                </td>
+                                <td *ngIf="currentClassDetails.spellcasting != null">{{item.spellcasting.spell_slots_level_8}}
+                                </td>
+                                <td *ngIf="currentClassDetails.spellcasting != null">{{item.spellcasting.spell_slots_level_9}}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </mat-expansion-panel>
+            </mat-accordion>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- <div class="container"> -->
+    <!-- <div class="row">
+        <div class="col">
+            <h4 class="text-center">Proficiency Choices - Choose {{currentClassDetails.proficiency_choices[0].choose}}
+            </h4>
+            <ul class="list-group list-group-flush">
+                <div *ngFor="let item of currentClassDetails.proficiency_choices[0].from">
+                    <li class="list-group-item">{{item.name}}</li>
+                </div>
+            </ul>
+        </div>
+        <div class="col">
+            <h4 class="text-center">Proficiencies</h4>
+            <ul class="list-group list-group-flush">
+                <div *ngFor="let item of currentClassDetails.proficiencies">
+                    <li class="list-group-item">{{item.name}}</li>
+                </div>
+            </ul>
+        </div> -->
+        <!-- <div class="col">
+            <h4 class="text-center">Saving Throws</h4>
+            <ul class="list-group list-group-flush">
+                <div *ngFor="let item of currentClassDetails.saving_throws">
+                    <li class="list-group-item">{{item.name}}</li>
+                </div>
+            </ul>
+        </div>
+    </div> -->
+   <!--  <div class="row">
+        <div class="col">
+            <h4 class="text-center">Starting Equipment</h4>
+            <ul class="list-group list-group-flush">
+                <div *ngFor="let item of currentClassDetails.starting_equipment">
+                    <li class="list-group-item">{{item.equipment.name}} x {{item.quantity}}</li>
+                </div>
+            </ul>
+        </div>
+        <div class="col">
+            <h4 class="text-center">Starting Equipment Options - COME BACK AND FIX THIS</h4>
+        </div>
+    </div> -->
+    <!-- <div class="row" *ngIf="currentClassDetails.spellcasting != null">
+        <div class="col ">
+            <h4 class="text-center">Spellcasting</h4>
+            <h5 class="text-center">Spellcasting Ability -
+                {{currentClassDetails.spellcasting.spellcasting_ability.name}}</h5>
+            <ul>
+                <div *ngFor="let item of currentClassDetails.spellcasting.info">
+                    <li>
+                        {{item.name}}
+                        <ul>
+                            <div *ngFor="let x of item.desc">
+                                <li>{{x}}</li>
+                            </div>
+                        </ul>
+                    </li>
+                </div>
+            </ul>
+        </div>>
+    </div> -->
+   <!--  <div class="row" *ngIf="currentClassDetails.spellcasting != null">
+        <div class="col">
+            ADD COLLAPSIBLE LIST OF SPELLS HERE BUT ONLY MAKE IT RENDER IF SPELLCASTING IS NOT NULL
+        </div>
+
+    </div> -->
+    <!-- <div class="row">
+        <div class="col">
+            <table class="table table-striped text-center">
+                <thead class="thead-light">
+                    <tr>
+                        <th>Level</th>
+                        <th>Ability Score Bonus</th>
+                        <th>Proficiency Bonus</th>
+                        <th>Features</th>
+                        <th *ngIf="currentClassDetails.spellcasting != null">Cantrips Known</th>
+                        <th *ngIf="currentClassDetails.spellcasting != null">Spells Known</th>
+                        <th *ngIf="currentClassDetails.spellcasting != null">Level 1 Spell Slots</th>
+                        <th *ngIf="currentClassDetails.spellcasting != null">Level 2 Spell Slots</th>
+                        <th *ngIf="currentClassDetails.spellcasting != null">Level 3 Spell Slots</th>
+                        <th *ngIf="currentClassDetails.spellcasting != null">Level 4 Spell Slots</th>
+                        <th *ngIf="currentClassDetails.spellcasting != null">Level 5 Spell Slots</th>
+                        <th *ngIf="currentClassDetails.spellcasting != null">Level 6 Spell Slots</th>
+                        <th *ngIf="currentClassDetails.spellcasting != null">Level 7 Spell Slots</th>
+                        <th *ngIf="currentClassDetails.spellcasting != null">Level 8 Spell Slots</th>
+                        <th *ngIf="currentClassDetails.spellcasting != null">Level 9 Spell Slots</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of classLevelInfo">
+                        <td>{{item.level}}</td>
+                        <td>{{item.ability_score_bonuses}}</td>
+                        <td>{{item.prof_bonus}}</td>
+                        <td>
+                            <ul>
+                                <div *ngFor="let x of item.features">
+                                    <li>
+                                        {{x.name}}
+                                    </li>
+                                </div>
+                            </ul>
+                        </td>
+                        <td *ngIf="currentClassDetails.spellcasting != null">{{item.spellcasting.cantrips_known}}</td>
+                        <td *ngIf="currentClassDetails.spellcasting != null">{{item.spellcasting.spells_known}}</td>
+                        <td *ngIf="currentClassDetails.spellcasting != null">{{item.spellcasting.spell_slots_level_1}}
+                        </td>
+                        <td *ngIf="currentClassDetails.spellcasting != null">{{item.spellcasting.spell_slots_level_2}}
+                        </td>
+                        <td *ngIf="currentClassDetails.spellcasting != null">{{item.spellcasting.spell_slots_level_3}}
+                        </td>
+                        <td *ngIf="currentClassDetails.spellcasting != null">{{item.spellcasting.spell_slots_level_4}}
+                        </td>
+                        <td *ngIf="currentClassDetails.spellcasting != null">{{item.spellcasting.spell_slots_level_5}}
+                        </td>
+                        <td *ngIf="currentClassDetails.spellcasting != null">{{item.spellcasting.spell_slots_level_6}}
+                        </td>
+                        <td *ngIf="currentClassDetails.spellcasting != null">{{item.spellcasting.spell_slots_level_7}}
+                        </td>
+                        <td *ngIf="currentClassDetails.spellcasting != null">{{item.spellcasting.spell_slots_level_8}}
+                        </td>
+                        <td *ngIf="currentClassDetails.spellcasting != null">{{item.spellcasting.spell_slots_level_9}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div> -->
+<!-- </div> -->

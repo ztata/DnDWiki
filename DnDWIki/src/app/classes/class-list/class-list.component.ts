@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ClassService } from '../class.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-class-list',
@@ -8,7 +9,7 @@ import { ClassService } from '../class.service';
 })
 export class ClassListComponent implements OnInit {
 
-  constructor(private service: ClassService) { }
+  constructor(private service: ClassService, private router: Router) { }
   classList: any;
 
   ngOnInit(): void {
