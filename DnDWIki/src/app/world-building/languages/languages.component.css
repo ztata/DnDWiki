@@ -6,3 +6,7 @@ img {
     opacity: 90%;
     /* border: red 5px solid; */
  }
+
+ .title{
+    font-family: 'Eagle Lake', cursive;
+}

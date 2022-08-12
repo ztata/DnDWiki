@@ -1,0 +1,6 @@
+<h1>Traits</h1>
+<ul>
+    <div *ngFor="let trait of traitsCollection.results">
+        <li><a [routerLink]="['/traits', trait.index]">{{trait.name}}</a></li>
+    </div>
+</ul>

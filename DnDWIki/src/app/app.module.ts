@@ -11,6 +11,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RacesModule } from './races/races.module';
 import { HomeModule } from './home/home.module';
 import { SpellsModule } from './spells/spells.module';
+import { WorldBuildingModule } from './world-building/world-building.module';
+import { CharactersModule } from './characters/characters.module';
 
 
 
@@ -30,7 +32,9 @@ import { SpellsModule } from './spells/spells.module';
     BrowserAnimationsModule,
     RacesModule,
     HomeModule,
-    SpellsModule
+    SpellsModule,
+    WorldBuildingModule,
+    CharactersModule
   ],
   providers: [],
   bootstrap: [AppComponent]

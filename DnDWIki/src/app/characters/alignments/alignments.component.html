@@ -1,0 +1,22 @@
+<div class="container mt-3">
+    <div class="row">
+        <div class="col text-center">
+            <h1>Alignments</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <mat-accordion>
+                <div *ngFor="let alignment of alignments">
+                    <mat-expansion-panel class="mb-1">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>{{alignment.name}}</mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <h3>{{alignment.desc}}</h3>
+                    </mat-expansion-panel>
+                </div>
+            </mat-accordion>
+        </div>
+    </div>
+
+</div>

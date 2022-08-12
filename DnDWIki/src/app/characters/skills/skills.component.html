@@ -1,0 +1,29 @@
+<div class="container mt-3">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col"><img src="https://i0.wp.com/www.hipstersanddragons.com/wp-content/uploads/2021/05/dungeons-and-dragons-combat-design.jpeg?fit=1200%2C675&ssl=1" width="800px"/></div>
+        <div class="col"></div>
+    </div>
+    <div class="row mt-3">
+        <div class="col text-center">
+            <h1 class="title">Skills</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <mat-accordion>
+                <div *ngFor="let skill of skills">
+                    <mat-expansion-panel class="mb-1">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title class="title">{{skill.name}}</mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <li>Ability Score: {{skill.ability_score.name}}</li>
+                        <div *ngFor="let item of skill.desc">
+                            <h5>{{item}}</h5>
+                        </div>
+                    </mat-expansion-panel>
+                </div>
+            </mat-accordion>
+        </div>
+    </div>
+</div>>

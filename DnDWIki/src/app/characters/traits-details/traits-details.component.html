@@ -1,0 +1,50 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col text-center">
+            <h1>{{traitDetails.name}}</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col text-center">
+            <h3>{{traitDetails.desc}}</h3>
+        </div>
+    </div>
+    <!--ADD LINKS HERE TO TAKE YOU BACK TO THE VARIOUS SPOTS LINKED-->
+    <div class="row">
+        <div class="col text-center">
+            <dl>
+                <div *ngIf="traitDetails.races[0] != undefined">
+                    <dt>Races: </dt>
+                    <dd>
+                        <ul class="list-group">
+                            <div *ngFor="let race of traitDetails.races">
+                                <li class="list-group-item"><a
+                                        [routerLink]="['/raceDetails', race.index]">{{race.name}}</a></li>
+                            </div>
+                        </ul>
+                    </dd>
+                </div>
+                <div *ngIf="traitDetails.subraces[0] != undefined">
+                    <dt>Subraces: </dt>
+                    <dd>
+                        <ul class="list-group">
+                            <div *ngFor="let race of traitDetails.subraces">
+                                <li class="list-group-item">{{race.name}}</li>
+                            </div>
+                        </ul>
+                    </dd>
+                </div>
+                <div *ngIf="traitDetails.proficiencies[0] != undefined">
+                    <dt>Proficiencies: </dt>
+                    <dd>
+                        <ul class="list-group">
+                            <div *ngFor="let race of traitDetails.proficiencies">
+                                <li class="list-group-item">{{race.name}}</li>
+                            </div>
+                        </ul>
+                    </dd>
+                </div>
+            </dl>
+        </div>
+    </div>
+</div>>

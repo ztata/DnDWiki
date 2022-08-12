@@ -43,7 +43,7 @@
                     </mat-expansion-panel-header>
                     <ul>
                         <div *ngFor="let language of raceDetails.languages">
-                            <li>{{language.name}}</li>
+                            <li><a [routerLink]="['/languages']">{{language.name}}</a></li>
                         </div>
                     </ul>
                     <p>{{raceDetails.language_desc}}</p>
@@ -51,7 +51,7 @@
                         <h4>Additional Languages - Choose {{raceDetails.language_options.choose}}</h4>
                         <ul>
                             <div *ngFor="let language of raceDetails.language_options.from.options">
-                                <li>{{language.item.name}}</li>
+                                <li><a routerLink="/languages">{{language.item.name}}</a></li>
                             </div>
                         </ul>
                     </div>
@@ -63,7 +63,7 @@
                     </mat-expansion-panel-header>
                     <ul>
                         <div *ngFor="let trait of raceDetails.traits">
-                            <li>{{trait.name}}</li>
+                            <li><a [routerLink]="['/traits', trait.index]">{{trait.name}}</a></li>
                         </div>
                     </ul>
                 </mat-expansion-panel>

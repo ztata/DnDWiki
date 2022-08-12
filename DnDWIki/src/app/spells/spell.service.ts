@@ -24,6 +24,6 @@ export class SpellService {
  }
 
  ReturnSchoolOfMagic(name:string){
-  return this.http.get(`${this.schoolOfMagicUri}/${name}`);
+  return this.http.get<any>(`${this.schoolOfMagicUri}/${name}`)
  }
 }

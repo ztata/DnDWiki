@@ -1,5 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { ListFormat } from 'typescript';
 import { SpellService } from '../spell.service';
+
 
 @Component({
   selector: 'app-schools-of-magic',
@@ -8,61 +11,32 @@ import { SpellService } from '../spell.service';
 })
 export class SchoolsOfMagicComponent implements OnInit {
 
-  constructor(private service: SpellService) { }
+  constructor(private service: SpellService, private http: HttpClient) { }
 
-/*   rp = require('request-promise');
- */
-  uri = "https://www.dnd5eapi.co/api/magic-schools";
+
 
   schoolList = [
-    {name: 'abjuration'}, 
-    {name: 'conjuration'}, 
-    {name: 'divination'}, 
-    {name: 'enchantment'}, 
-    {name: 'evocation'}, 
-    {name: 'illusion'}, 
-    {name: 'necromancy'}, 
-    {name: 'transmutation'}]
-
-    populatedList: any;
-
-
-    //I THINK WE NEED TO USE A PROMISE HERE TO LOOP THROUGH THE SCHOOL ARRAY AND ADD A NEW DESC PROPERTY TO EACH ITEM
-
+    {name: 'abjuration', desc: ''}, 
+    {name: 'conjuration', desc: ''}, 
+    {name: 'divination', desc: ''}, 
+    {name: 'enchantment', desc: ''}, 
+    {name: 'evocation', desc: ''}, 
+    {name: 'illusion', desc: ''}, 
+    {name: 'necromancy', desc: ''}, 
+    {name: 'transmutation', desc: ''}]
 
   ngOnInit(): void {
-/*     this.populatedList = this.processUsers(this.schoolList);
- */  }
-
-/*   MakeApiCall(name){
-    return this.rp({
-      url : `${URL}/${name}`,
-      method : 'GET',
-      json : true
-  })
+  this.PopulateList(this.schoolList); 
   }
 
-  async processUsers(list){
-    let result;
-    let promises = [];
-    for(let i = 0; i < list.length; i++){
-        promises.push(this.MakeApiCall(list[i].name));
+  PopulateList(inputList: any[]) {
+    for (let i = 0; i < inputList.length; i++) {
+      this.service.ReturnSchoolOfMagic(inputList[i].name).subscribe(data => {inputList[i] = data});
     }
-    result = await Promise.all(promises);
-    for(let i = 0; i < list.length; i++){
-        list[i]['result'] = result[i];
-    }
-    return list;
-} */
+    return inputList;
+  } 
 
-/* async function processUsers(){
-  let result;
-  for(let i = 0; i < user_list.length; i++){
-      result = await make_api_call(user_list[i].Id);
-      user_list[i]['result'] = result;
-  }
-  return user_list;
-} */
+
 
  
 

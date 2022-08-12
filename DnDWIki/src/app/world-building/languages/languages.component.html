@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+
+        </div>
+        <div class="col">
+            <img src="https://blackcitadelrpg.com/wp-content/uploads/2021/08/Wizards-Spellbook-Languages-of-5E.jpg"
+                width="700">
+        </div>
+        <div class="col">
+        </div>
+    </div>
+    <div>
+        <div class="row mt-3">
+            <div class="col text-center">
+                <h1 class="title">Languages of the Multiverse</h1>
+            </div>
+
+        </div>
+        <div class="row mt-3">
+            <mat-accordion>
+                <div *ngFor="let item of languageList">
+                    <mat-expansion-panel class="mb-1">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title class="title">{{item.name}}</mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <h5>Type: {{item.type}}</h5>
+                        <h5>Script: {{item.script}}</h5>
+                        <h5>
+                            Typical Speakers:
+                            <div *ngFor="let speaker of item.typical_speakers">
+                                <li>{{speaker}}</li>
+                            </div>
+                        </h5>
+                    </mat-expansion-panel>
+                </div>
+            </mat-accordion>
+        </div>
+    </div>
+</div>
