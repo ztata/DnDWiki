@@ -9,6 +9,8 @@ import { RouterModule } from '@angular/router';
 import { matExpansionAnimations, MatExpansionModule } from '@angular/material/expansion';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RacesModule } from './races/races.module';
+import { HomeModule } from './home/home.module';
+import { SpellsModule } from './spells/spells.module';
 
 
 
@@ -26,7 +28,9 @@ import { RacesModule } from './races/races.module';
     RouterModule,
     MatExpansionModule,
     BrowserAnimationsModule,
-    RacesModule
+    RacesModule,
+    HomeModule,
+    SpellsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,7 @@
+<p>spell-list works!</p>
+
+<ul>
+    <div *ngFor="let spell of spellList.results">
+        <li><a [routerLink]="['/spellDetails', spell.index]">{{spell.name}}</a></li>
+    </div>
+</ul>

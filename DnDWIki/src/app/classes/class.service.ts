@@ -25,4 +25,8 @@ export class ClassService {
  ReturnClassLevelInfo(name: string){
   return this.http.get(`${this.classListApiUri}/${name}/levels`);
  }
+
+ ReturnSpellList(name:string){
+  return this.http.get(`${this.classListApiUri}/${name}/spells`);
+ }
 }

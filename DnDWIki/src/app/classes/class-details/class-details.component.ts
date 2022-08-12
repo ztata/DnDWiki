@@ -15,6 +15,7 @@ export class ClassDetailsComponent implements OnInit {
   classLevelInfo: any;
   imageUrl: any;
   backstory: any;
+  spellList: any;
 
   ngOnInit(): void {
     this.currentClassName = this.route.snapshot.paramMap.get("name");
@@ -27,6 +28,11 @@ export class ClassDetailsComponent implements OnInit {
     this.service.ReturnClassLevelInfo(this.currentClassName).subscribe( data =>{
       this.classLevelInfo = data
       });
+
+    this.service.ReturnSpellList(this.currentClassName).subscribe(
+      data => {this.spellList = data}
+    )
+    console.log(this.spellList.results[0])
   }
 
   SelectClassBackstory(name: string){

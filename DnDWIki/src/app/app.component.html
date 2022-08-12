@@ -8,33 +8,70 @@
 
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">INSERT LOGO HERE</a>
+    <a class="navbar-brand" href="#"><img src="/assets/d20.svg" height="75px" width="75px"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" routerLink="/home" routerLinkActive="active">Home</a>
+
+
+        
+
+
+
+      <!--   <li class="nav-item active">
+          <a class="nav-link" routerLink="" routerLinkActive="active">Home</a>
+        </li> -->
+       
+        <li class="nav-item dropdown">
+          <a class="nav-link  dropdown-toggle" href="#" data-bs-toggle="dropdown">  Character  </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" routerLink="/classList" routerLinkActive="active">Classes</a></li>
+          <li><a class="dropdown-item" routerLink="/raceList" routerLinkActive="active">Races</a></li>
+          </ul>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/classList" routerLinkActive="active">Classes</a>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link  dropdown-toggle" href="#" data-bs-toggle="dropdown">  Magic  </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" routerLink="/schoolsOfMagic" routerLinkActive="active">Schools of Magic</a></li>
+            <li><a class="dropdown-item" routerLink="/spellList" routerLinkActive="active">Spell List</a></li>
+          </ul>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/raceList" routerLinkActive="active">Races</a>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link  dropdown-toggle" href="#" data-bs-toggle="dropdown">  Skills and Traits  </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" routerLink="/" routerLinkActive="active">placeholder</a></li>
+          </ul>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">NO LINK HERE YET</a>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link  dropdown-toggle" href="#" data-bs-toggle="dropdown">  Equipment  </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" routerLink="/" routerLinkActive="active">placeholder</a></li>
+          </ul>
         </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link  dropdown-toggle" href="#" data-bs-toggle="dropdown">  Monsters  </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" routerLink="/" routerLinkActive="active">placeholder</a></li>
+          </ul>
+        </li>
+
       </ul>
-      <span class="navbar-text">
+      <!-- <span class="navbar-text">
         Your completely definitve and totally unoffical guide to all things DND
-      </span>
+      </span> -->
     </div>
   </nav>
 
 
 <router-outlet></router-outlet>
+<br>
+<br>
 <!-- 
 <footer class="bg-dark text-center text-white fixed-bottom">
     <br>
