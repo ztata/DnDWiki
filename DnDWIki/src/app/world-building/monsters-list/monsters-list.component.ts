@@ -42,7 +42,6 @@ export class MonstersListComponent implements OnInit {
   ngOnInit(): void {
     this.service.ReturnMonsterList().subscribe(data => {
       this.unsortedList = data
-      console.log(this.unsortedList)
       for (let i = 0; i < this.sortedList.length; i++) {
         let firstLetter: string = this.sortedList[i].id;
 
@@ -53,7 +52,6 @@ export class MonstersListComponent implements OnInit {
 
         });
       }
-      console.log(this.sortedList)
     })
   }
 }

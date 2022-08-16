@@ -1,1 +1,97 @@
-<p>monsters-details works!</p>
+<div class="container mt-3">
+    <div class="row">
+        <div class="col text-center">
+            <h1 class="title">{{monster?.name}}</h1>
+            <h5><em>{{monster?.size}} {{monster?.type}}, {{monster?.alignment}}</em></h5>
+            <br>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col text-center">
+            <div class="d-flex">
+                <ul class="list-group list-group-horizontal mx-auto justify-content-center">
+                    <li class="list-group-item"><strong>STR: </strong>{{monster?.strength}}</li>
+                    <li class="list-group-item"><strong>DEX: </strong>{{monster?.dexterity}}</li>
+                    <li class="list-group-item"><strong>CON: </strong>{{monster?.constitution}}</li>
+                    <li class="list-group-item"><strong>INT: </strong>{{monster?.intelligence}}</li>
+                    <li class="list-group-item"><strong>WIS: </strong>{{monster?.wisdom}}</li>
+                    <li class="list-group-item"><strong>CHR: </strong>{{monster?.charisma}}</li>
+                </ul>
+            </div>
+            <h3 class="mt-1">Armor Class: {{monster?.armor_class}}</h3>
+            <h3>Hit Points: {{monster?.hit_points}}</h3>
+            <h3>Speed:
+                <!--consider adding spans here with ngifs to handle adding or removing commas-->
+                <span *ngIf="monster?.speed.walk != undefined">{{monster?.speed.walk}} walking </span>
+                <span *ngIf="monster?.speed.fly != undefined">{{monster?.speed.fly}} flying </span>
+                <span *ngIf="monster?.speed.swim != undefined">{{monster?.speed.swim}} swimming</span>
+            </h3>
+            <hr>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col text-center">
+            <h3 *ngIf="savingThrows[0]?.index != undefined"><strong>Saving Throws: </strong> <span
+                    *ngFor="let skill of savingThrows">{{skill.proficiency.name}} +{{skill.value}} </span> </h3>
+            <h3 *ngIf="skills[0]?.index != undefined"><strong>Skills: </strong> <span
+                    *ngFor="let skill of skills">{{skill.proficiency.name}} +{{skill.value}} </span> </h3>
+            <h3 *ngIf="monster?.damage_immunities[0] != undefined"><strong>Damage Immunities: </strong><span
+                    *ngFor="let item of monster?.damage_immunities">{{item}} </span></h3>
+            <h3><strong>Senses: </strong>
+                <span *ngIf="monster?.senses.blindsight != undefined">Blindsight: {{monster?.senses.blindsight}} </span>
+                <span *ngIf="monster?.senses.darkvision != undefined">Darkvision: {{monster?.senses.darkvision}} </span>
+                <span *ngIf="monster?.senses.tremorsense != undefined">Tremorsense: {{monster?.senses.tremorsense}}
+                </span>
+                <span *ngIf="monster?.senses.truesight != undefined">Truesight: {{monster?.senses.truesight}} </span>
+                <span>Passive Perception: {{monster?.senses.passive_perception}}</span>
+            </h3>
+            <h3 *ngIf="monster?.languages != ''"><strong>Languages: </strong>{{monster?.languages}}</h3>
+            <h3><strong>Challenge: </strong>{{monster?.challenge_rating}} ({{monster?.xp}} XP)</h3>
+            <hr>
+        </div>
+    </div>
+
+    <div class="row" *ngIf="monster?.special_abilities[0]?.name != undefined">
+        <div class="col text-center">
+            <h2><strong>Special Abilities</strong></h2>
+            <div *ngFor="let skill of monster?.special_abilities">
+                <h3><strong>{{skill.name}}: </strong>{{skill.desc}}</h3>
+            </div>
+            <hr>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col text-center">
+            <h2><strong>Actions</strong></h2>
+            <div *ngFor="let action of monster?.actions">
+                <h3><strong>{{action.name}}: </strong>
+                    {{action.desc}}
+                </h3>
+            </div>
+            <hr>
+        </div>
+
+    </div>
+
+    <div class="row" *ngIf="monster?.legendary_actions[0]?.name != undefined">
+        <div class="col text-center">
+            <h2><strong>Legendary Actions</strong></h2>
+            <div *ngFor="let action of monster?.legendary_actions">
+                <h3>
+                    <strong>{{action.name}}: </strong>
+                    {{action.desc}}
+                </h3>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col">
+            <div class="d-flex">
+                <button class="btn btn-primary mx-auto" [routerLink]="['/monsterList']">Back to List</button>
+            </div>
+        </div>
+    </div>
+</div>
