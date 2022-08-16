@@ -19,6 +19,10 @@ import { FeaturesComponent } from './characters/features/features.component';
 import { SkillsComponent } from './characters/skills/skills.component';
 import { TraitsComponent } from './characters/traits/traits.component';
 import { TraitsDetailsComponent } from './characters/traits-details/traits-details.component';
+import { MagicItemsComponent } from './equipment/magic-items/magic-items.component';
+import { StandardItemsComponent } from './equipment/standard-items/standard-items.component';
+import { WeaponPropertiesComponent } from './equipment/weapon-properties/weapon-properties.component';
+import { ItemCategoryComponent } from './equipment/item-category/item-category.component';
 
 /*  NEED TO ADD IN A WILDCARD ROUTE HERE AS WELL AS A CATCH ALL FOR PAGE CANNOT BE FOUND */
 const routes: Routes = [
@@ -39,6 +43,10 @@ const routes: Routes = [
   {path: 'skills', component: SkillsComponent},
   {path: 'traits', component: TraitsComponent},
   {path: 'traits/:name', component: TraitsDetailsComponent},
+  {path: 'magicItems', component: MagicItemsComponent},
+  {path: 'items', component: StandardItemsComponent},
+  {path: 'itemCategory/:name', component: ItemCategoryComponent},
+  {path: 'weaponProperties', component: WeaponPropertiesComponent},
   {path: '', component: HomepageComponent}
 ];
 

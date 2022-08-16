@@ -13,6 +13,7 @@ import { HomeModule } from './home/home.module';
 import { SpellsModule } from './spells/spells.module';
 import { WorldBuildingModule } from './world-building/world-building.module';
 import { CharactersModule } from './characters/characters.module';
+import { EquipmentModule } from './equipment/equipment.module';
 
 
 
@@ -34,7 +35,8 @@ import { CharactersModule } from './characters/characters.module';
     HomeModule,
     SpellsModule,
     WorldBuildingModule,
-    CharactersModule
+    CharactersModule,
+    EquipmentModule
   ],
   providers: [],
   bootstrap: [AppComponent]

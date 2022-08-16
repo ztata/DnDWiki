@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+
+        </div>
+        <div class="col">
+            <img src="https://media.dnd.wizards.com/styles/second_hubpage_banner/public/images/head-banner/02_LATEST-STORY_Heroes_Sub-Header_140707.png"
+                width="900">
+        </div>
+        <div class="col">
+        </div>
+    </div>
+    <div>
+        <div class="row mt-3">
+            <div class="col text-center">
+                <h1 class="title">Weapon Properties</h1>
+            </div>
+
+        </div>
+        <div class="row mt-3">
+            <mat-accordion>
+                <div *ngFor="let item of propertyList">
+                    <mat-expansion-panel class="mb-1">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title class="title">{{item.name}}</mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <div *ngFor="let bullet of item.desc">
+                            <h3>{{bullet}}</h3>
+                        </div>
+                    </mat-expansion-panel>
+                </div>
+            </mat-accordion>
+        </div>
+    </div>
+</div>

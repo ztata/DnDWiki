@@ -1,0 +1,6 @@
+<p>standard-items works!</p>
+<ul>
+    <div *ngFor="let category of categoryList?.results">
+        <li><a [routerLink]="['/itemCategory', category.index]">{{category.name}}</a></li>
+    </div>
+</ul>

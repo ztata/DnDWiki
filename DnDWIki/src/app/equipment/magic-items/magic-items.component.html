@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col">
+            <img class="mt-3" width="900px" src="https://mygamenightblog.files.wordpress.com/2019/03/phandelver-banner.jpg?w=1920&h=540&crop=1">
+        </div>
+        <div class="col"></div>
+    </div>
+
+    <div class="row">
+        <div class="col text-center">
+            <h1 class="title">Enchanted Items</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <mat-accordion>
+                <div *ngFor="let item of sortedList">
+                    <mat-expansion-panel class="mb-1">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title class="title">{{item?.id}}</mat-panel-title>
+                        </mat-expansion-panel-header>
+
+                        <mat-accordion>
+                            <div *ngFor="let feature of item?.features">
+                                <mat-expansion-panel class="mb-1">
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title class="title">{{feature?.name}}</mat-panel-title>
+                                    </mat-expansion-panel-header>
+                                    <div *ngFor="let desc of feature?.desc">
+                                        <h3>{{desc}}</h3>
+                                    </div>
+                                    <h4><strong>Rarity: </strong> {{feature?.rarity?.name}}</h4>
+                                    <h4><strong>Category: </strong>{{feature?.equipment_category?.name}}</h4>
+                                </mat-expansion-panel>
+                            </div>
+                        </mat-accordion>
+                    </mat-expansion-panel>
+                </div>
+            </mat-accordion>
+        </div>
+    </div>
+</div>
