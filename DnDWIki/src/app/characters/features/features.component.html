@@ -1,1 +1,41 @@
-<p>features works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col">
+            <img class="mt-3" width="900px" src="https://media.dnd.wizards.com/styles/second_hubpage_banner/public/images/head-banner/dnd_tasha_header_0.jpg">
+        </div>
+        <div class="col"></div>
+    </div>
+
+    <div class="row">
+        <div class="col text-center">
+            <h1 class="title">Features</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <mat-accordion>
+                <div *ngFor="let item of sortedList">
+                    <mat-expansion-panel class="mb-1">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title class="title">{{item?.id}}</mat-panel-title>
+                        </mat-expansion-panel-header>
+
+                        <mat-accordion>
+                            <div *ngFor="let feature of item?.features">
+                                <mat-expansion-panel class="mb-1">
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title class="title">{{feature?.name}}</mat-panel-title>
+                                    </mat-expansion-panel-header>
+                                    <h4>{{feature?.desc}}</h4>
+                                    <h4>Class: {{feature?.class?.name}}</h4>
+                                    <h4>Level: {{feature?.level}}</h4>
+                                </mat-expansion-panel>
+                            </div>
+                        </mat-accordion>
+                    </mat-expansion-panel>
+                </div>
+            </mat-accordion>
+        </div>
+    </div>
+</div>

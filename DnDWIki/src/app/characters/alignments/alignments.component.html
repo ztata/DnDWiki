@@ -1,7 +1,14 @@
+<!--CONSIDER HARD CODING THIS INTO A 3X3 GRID-->
+
 <div class="container mt-3">
     <div class="row">
+        <div class="col"></div>
+        <div class="col"><img src="https://64.media.tumblr.com/ec6f5a13192f3b9ff02cc1d9272310c6/tumblr_inline_ol6qqav6wG1qdq19t_1280.jpg"></div>
+        <div class="col"></div>
+    </div>
+    <div class="row mt-3">
         <div class="col text-center">
-            <h1>Alignments</h1>
+            <h1 class="title">Alignments</h1>
         </div>
     </div>
     <div class="row">
@@ -10,7 +17,7 @@
                 <div *ngFor="let alignment of alignments">
                     <mat-expansion-panel class="mb-1">
                         <mat-expansion-panel-header>
-                            <mat-panel-title>{{alignment.name}}</mat-panel-title>
+                            <mat-panel-title class="title">{{alignment.name}}</mat-panel-title>
                         </mat-expansion-panel-header>
                         <h3>{{alignment.desc}}</h3>
                     </mat-expansion-panel>

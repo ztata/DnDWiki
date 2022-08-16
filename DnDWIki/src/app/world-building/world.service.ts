@@ -8,8 +8,17 @@ export class WorldService {
 
   constructor(private http: HttpClient) { }
   private apiUri = "https://www.dnd5eapi.co/api/languages/";
+  private monsterUri = "https://www.dnd5eapi.co/api/monsters";
 
   ReturnLanguageDetails(name: string){
     return this.http.get(`${this.apiUri}/${name}`);
+  }
+
+  ReturnMonsterList(){
+    return this.http.get(`${this.monsterUri}`)
+  }
+
+  ReturnMonsterDetails(name: string){
+    return this.http.get(`${this.monsterUri}/${name}`)
   }
 }
