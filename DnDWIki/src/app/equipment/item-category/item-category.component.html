@@ -33,14 +33,13 @@
             <h1 class="title">{{category?.name}}</h1>
         </div>
     </div>
-    <div class="row">
+   <!--  <div class="row">
         <div class="col text-center">
             <div *ngIf="displayMessage === true">
                 <h1>{{message}}</h1>
             </div>            
         </div>
-    </div>
-    <div *ngIf="displayMessage === false">
+    </div> -->
         <div class="row">
             <div class="col">
                 <mat-accordion>
@@ -120,5 +119,11 @@
                 </mat-accordion>
             </div>
         </div>
-    </div>
+        <div class="row mt-3">
+            <div class="col text-center">
+                <div class="d-flex">
+                    <button class="btn btn-primary mx-auto" [routerLink]="['/items']">Back to List</button>
+                </div>
+            </div>
+        </div>
 </div>

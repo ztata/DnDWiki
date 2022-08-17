@@ -11,10 +11,26 @@ export class StandardItemsComponent implements OnInit {
   constructor(private service: EquipmentService) { }
   
   categoryList: any;
+  cateoriesToRemove = [
+    "potion",
+    "ring",
+    "rod",
+    "scroll",
+    "staff",
+    "wand",
+    "wondrous-items"
+  ]
+  includedCategories = []
 
   ngOnInit(): void {
-    this.service.ReturnEquipmentCategoryList().subscribe(data => {this.categoryList = data})
+    this.service.ReturnEquipmentCategoryList().subscribe(data => {
+      this.categoryList = data
+      this.categoryList.results.forEach(element => {
+        if(this.cateoriesToRemove.includes(element.index) === false){
+          this.includedCategories.push(element)
+        }        
+      });  
+    })
 
   }
-
 }

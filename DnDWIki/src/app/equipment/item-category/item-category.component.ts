@@ -53,7 +53,7 @@ export class ItemCategoryComponent implements OnInit {
     this.service.ReturnSingleEquipmentCategory(this.name).subscribe(data => {this.category = data})
     this.service.ReturnSingleEquipmentCategory(this.name).subscribe(data => {
       this.unsortedList = data
-      console.log(this.unsortedList)
+      // console.log(this.unsortedList)
       for (let i = 0; i < this.sortedList.length; i++) {
         let firstLetter: string = this.sortedList[i].id;
 
@@ -79,8 +79,8 @@ export class ItemCategoryComponent implements OnInit {
           }
         }
       }) */
-      this.DetermineShowMessage(this.sortedList)
-      console.log(this.sortedList)
+    /*   this.DetermineShowMessage(this.sortedList)
+      console.log(this.sortedList) */
 
       
 
@@ -94,7 +94,7 @@ export class ItemCategoryComponent implements OnInit {
     return inputList;
 }
 
-DetermineShowMessage(list){
+/* DetermineShowMessage(list){
   console.log("called show message function")
   let counter = 0;
   list.forEach(element => {
@@ -109,6 +109,6 @@ DetermineShowMessage(list){
   else{
     this.displayMessage = true;
   }
-} 
+}  */
 
 }
