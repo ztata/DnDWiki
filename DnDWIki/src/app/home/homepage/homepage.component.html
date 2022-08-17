@@ -1,1 +1,97 @@
-<p>homepage works!</p>
+<div class="container">
+
+    <!--TITLE-->
+    <div class="row mt-5">
+        <div class="col text-center">
+            <h1 class="title"><strong>Dungeon Crawler</strong></h1>
+            <br>
+            <H3>A Definitive and Completetly Unofficial Guide to the Multiverse</H3>
+
+        </div>
+    </div>
+
+    <!--NAVIGATION AND IMAGES-->
+    <div class="row mt-3 mb-3">
+        <div class="col">
+            <img src="https://www.dndbeyond.com/avatars/thumbnails/6/359/420/618/636272697874197438.png">
+        </div>
+        <div class="col text-center mt-3">
+            <h2 class="mt-5">Pick a Section to Get Started: </h2>
+            <mat-accordion>
+                <mat-expansion-panel class="mb-3">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>Characters</mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><a [routerLink]="['/classList']">Classes</a></li>
+                        <li class="list-group-item"><a [routerLink]="['/raceList']">Races</a></li>
+                        <li class="list-group-item"><a [routerLink]="['/alignments']">Alignments</a></li>
+                        <li class="list-group-item"><a [routerLink]="['/features']">Features</a></li>
+                        <li class="list-group-item"><a [routerLink]="['/skills']">Skills</a></li>
+                        <li class="list-group-item"><a [routerLink]="['/traits']">Traits</a></li>
+                    </ul>         
+                </mat-expansion-panel>
+
+                <mat-expansion-panel class="mb-1">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>Magic</mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><a [routerLink]="['/schoolsOfMagic']">Schools of Magic</a></li>
+                        <li class="list-group-item"><a [routerLink]="['/spellList']">Spell List</a></li>
+                    </ul>                    
+                </mat-expansion-panel>
+
+                <mat-expansion-panel class="mb-1">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>World Building</mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><a [routerLink]="['/languages']">Languages</a></li>
+                        <li class="list-group-item"><a [routerLink]="['/monsterList']">Monsters</a></li>
+                    </ul>                      
+                </mat-expansion-panel>
+
+                <mat-expansion-panel class="mb-1">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>Equipment</mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><a [routerLink]="['/magicItems']">Enchanted Items</a></li>
+                        <li class="list-group-item"><a [routerLink]="['/items']">Standard Items and Equipment</a></li>
+                        <li class="list-group-item"><a [routerLink]="['/weaponProperties']">Weapon Properties</a></li>
+                    </ul>                      
+                </mat-expansion-panel>
+
+                <mat-expansion-panel class="mb-1">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>Rules</mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><a [routerLink]="['/conditions']">Conditions</a></li>
+                        <li class="list-group-item"><a [routerLink]="['/damageTypes']">Damage Types</a></li>
+                        <li class="list-group-item"><a [routerLink]="['/generalRules']">All Rules</a></li>
+                        <li class="list-group-item"><a [routerLink]="['/ruleSections']">Rules by Category</a></li>
+                    </ul>                      
+                </mat-expansion-panel>
+            </mat-accordion>
+            <!--FIND A SMALL ICON TO PUT HERE-->
+            <!-- <img src="https://i.pinimg.com/originals/d2/b5/b3/d2b5b3a31abcedd4e0a5bdd1cf53b1a7.png" height="100" width="90">             -->
+        </div>
+        <div class="col">
+            <img src="https://www.dndbeyond.com/avatars/thumbnails/6/369/420/618/636272705936709430.png">
+        </div>
+    </div>
+
+    <!--DISCLAIMER and linkedin links-->
+    <div class="row">
+        <div class="col text-center">
+            <h3><strong>Disclaimer:</strong></h3>
+            <h3> Please note that I do not own the rights to any of the images or information displayed in this project. 
+                They have been used for educational and demonstrative purposes only
+            </h3>
+            <h5>Please feel free to explore my <a href="https://www.linkedin.com/in/zacharytata/" target="_blank">LinkedIn</a>
+                 and <a href="https://github.com/ztata" target="_blank">Github</a> for further projects and information</h5>
+        </div>
+    </div>
+</div>

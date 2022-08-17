@@ -20,6 +20,8 @@ import { RulesModule } from './rules/rules.module';
 
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent
@@ -38,7 +40,7 @@ import { RulesModule } from './rules/rules.module';
     WorldBuildingModule,
     CharactersModule,
     EquipmentModule,
-    RulesModule
+    RulesModule    
   ],
   providers: [],
   bootstrap: [AppComponent]
