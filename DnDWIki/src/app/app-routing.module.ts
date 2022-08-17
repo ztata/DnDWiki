@@ -23,6 +23,12 @@ import { MagicItemsComponent } from './equipment/magic-items/magic-items.compone
 import { StandardItemsComponent } from './equipment/standard-items/standard-items.component';
 import { WeaponPropertiesComponent } from './equipment/weapon-properties/weapon-properties.component';
 import { ItemCategoryComponent } from './equipment/item-category/item-category.component';
+import { ConditionsComponent } from './rules/conditions/conditions.component';
+import { DamageTypesComponent } from './rules/damage-types/damage-types.component';
+import { GeneralRulesComponent } from './rules/general-rules/general-rules.component';
+import { ProficienciesComponent } from './rules/proficiencies/proficiencies.component';
+import { RuleSectionsComponent } from './rules/rule-sections/rule-sections.component';
+import { RuleSectionDetailsComponent } from './rules/rule-section-details/rule-section-details.component';
 
 /*  NEED TO ADD IN A WILDCARD ROUTE HERE AS WELL AS A CATCH ALL FOR PAGE CANNOT BE FOUND */
 const routes: Routes = [
@@ -47,6 +53,12 @@ const routes: Routes = [
   {path: 'items', component: StandardItemsComponent},
   {path: 'itemCategory/:name', component: ItemCategoryComponent},
   {path: 'weaponProperties', component: WeaponPropertiesComponent},
+  {path: 'conditions', component: ConditionsComponent},
+  {path: 'damageTypes', component: DamageTypesComponent},
+  {path: 'generalRules', component: GeneralRulesComponent},
+  {path: 'proficiencies', component: ProficienciesComponent},
+  {path: 'ruleSections', component: RuleSectionsComponent},
+  {path: 'ruleSections/:name', component: RuleSectionDetailsComponent},
   {path: '', component: HomepageComponent}
 ];
 

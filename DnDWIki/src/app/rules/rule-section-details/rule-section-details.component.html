@@ -1,0 +1,52 @@
+<div class="container">
+    <!--image-->
+    <!-- <div class="row">
+        <div class="col text-center">
+
+        </div>
+    </div> -->
+
+    <!--title-->
+    <div class="row mt-3">
+        <div class="col text-center">
+            <h1 class="title">{{section?.name}}</h1>
+            <hr>
+        </div>
+    </div>
+
+    <!--description-->
+    <div class="row">
+        <div class="col text-center">
+            <h3 style="white-space: pre-line;">{{section?.desc}}</h3>
+            <hr>
+        </div>
+    </div>
+
+    <!--panels-->
+    <div class="row mb-3">
+        <div class="col text-center">
+            <mat-accordion>
+                <div *ngFor="let item of subsections">
+                    <mat-expansion-panel class="mb-1">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>{{item?.name}}</mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <h4 style="white-space: pre-line;">{{item?.desc}}</h4>
+                    </mat-expansion-panel>
+                </div>
+            </mat-accordion>
+        </div>
+    </div>
+
+    <!--back button-->
+    <div class="row">
+        <div class="col text-center">
+            <div class="d-flex">
+                <button class="btn btn-primary mx-auto" [routerLink]="['/ruleSections']">Back to List</button>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>

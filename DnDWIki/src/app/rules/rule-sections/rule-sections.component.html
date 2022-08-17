@@ -1,0 +1,6 @@
+<p>rule-sections works!</p>
+<ul>
+    <div *ngFor="let rule of ruleList?.results">
+        <li><a [routerLink]="['/ruleSections', rule.index]" >{{rule.name}}</a></li>
+    </div>
+</ul>

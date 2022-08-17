@@ -14,6 +14,7 @@ import { SpellsModule } from './spells/spells.module';
 import { WorldBuildingModule } from './world-building/world-building.module';
 import { CharactersModule } from './characters/characters.module';
 import { EquipmentModule } from './equipment/equipment.module';
+import { RulesModule } from './rules/rules.module';
 
 
 
@@ -36,7 +37,8 @@ import { EquipmentModule } from './equipment/equipment.module';
     SpellsModule,
     WorldBuildingModule,
     CharactersModule,
-    EquipmentModule
+    EquipmentModule,
+    RulesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
