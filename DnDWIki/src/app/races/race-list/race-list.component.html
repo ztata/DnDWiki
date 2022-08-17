@@ -1,7 +1,117 @@
-<p>race-list works!</p>
-
-<ul>
-    <div *ngFor="let race of raceList.results">
-        <li><a [routerLink]="['/raceDetails', race.index]">{{race.index}}</a></li>
+<div class="container">
+    <div class="row mt-3 mb-3">
+        <div class="col text-center">
+            <h1 class="title"><strong>Character Races</strong></h1>
+        </div>
     </div>
-</ul>
+    
+        <div class="row mt-3 mb-3">
+            <div class="col text-center">
+                <div class="card mx-auto" style="width: 200px">
+                    <a [routerLink]="['/raceDetails', 'dragonborn']"><img class="card-img top"
+                        src="https://www.dndbeyond.com/avatars/thumbnails/6/340/420/618/636272677995471928.png"></a>
+                    <div class="card=body">
+                        <h4 clas="card-title"><strong>Dragonborn</strong></h4>
+                        <a class="btn btn-primary mb-1" [routerLink]="['/raceDetails', 'dragonborn']">View Details</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col text-center">
+                <div class="col text-center">
+                    <div class="card mx-auto" style="width: 200px">
+                        <a [routerLink]="['/raceDetails', 'dwarf']"><img class="card-img top"
+                            src="https://www.dndbeyond.com/avatars/thumbnails/6/254/420/618/636271781394265550.png"></a>
+                        <div class="card=body">
+                            <h4 clas="card-title"><strong>Dwarf</strong></h4>
+                            <a class="btn btn-primary mb-1" [routerLink]="['/raceDetails', 'dwarf']">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col text-center">
+                <div class="col text-center">
+                    <div class="card mx-auto" style="width: 200px">
+                        <a [routerLink]="['/raceDetails', 'elf']"><img class="card-img top"
+                            src="https://www.dndbeyond.com/avatars/thumbnails/7/639/420/618/636287075350739045.png"></a>
+                        <div class="card=body">
+                            <h4 clas="card-title"><strong>Elf</strong></h4>
+                            <a class="btn btn-primary mb-1" [routerLink]="['/raceDetails', 'elf']">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3 mb-3">
+            <div class="col text-center">
+                <div class="card mx-auto" style="width: 200px">
+                    <a [routerLink]="['/raceDetails', 'gnome']"><img class="card-img top"
+                        src="https://www.dndbeyond.com/avatars/thumbnails/6/334/420/618/636272671553055253.png"></a>
+                    <div class="card=body">
+                        <h4 clas="card-title"><strong>Gnome</strong></h4>
+                        <a class="btn btn-primary mb-1" [routerLink]="['/raceDetails', 'gnome']">View Details</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col text-center">
+                <div class="col text-center">
+                    <div class="card mx-auto" style="width: 200px">
+                        <a [routerLink]="['/raceDetails', 'half-elf']"><img class="card-img top"
+                            src="https://www.dndbeyond.com/avatars/thumbnails/6/481/420/618/636274618102950794.png"></a>
+                        <div class="card=body">
+                            <h4 clas="card-title"><strong>Half-Elf</strong></h4>
+                            <a class="btn btn-primary mb-1" [routerLink]="['/raceDetails', 'half-elf']">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col text-center">
+                <div class="col text-center">
+                    <div class="card mx-auto" style="width: 200px">
+                        <a [routerLink]="['/raceDetails', 'halfling']"><img class="card-img top"
+                            src="https://www.dndbeyond.com/avatars/thumbnails/6/256/420/618/636271789409776659.png"></a>
+                        <div class="card=body">
+                            <h4 clas="card-title"><strong>Halfling</strong></h4>
+                            <a class="btn btn-primary mb-1" [routerLink]="['/raceDetails', 'halfling']">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3 mb-3">
+            <div class="col text-center">
+                <div class="card mx-auto" style="width: 200px">
+                    <a [routerLink]="['/raceDetails', 'human']"><img class="card-img top"
+                        src="https://www.dndbeyond.com/avatars/thumbnails/6/258/420/618/636271801914013762.png"></a>
+                    <div class="card=body">
+                        <h4 clas="card-title"><strong>Human</strong></h4>
+                        <a class="btn btn-primary mb-1" [routerLink]="['/raceDetails', 'human']">View Details</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col text-center">
+                <div class="col text-center">
+                    <div class="card mx-auto" style="width: 200px">
+                        <a [routerLink]="['/raceDetails', 'half-orc']"><img class="card-img top"
+                            src="https://www.dndbeyond.com/avatars/thumbnails/6/466/420/618/636274570630462055.png"></a>
+                        <div class="card=body">
+                            <h4 clas="card-title"><strong>Half-Orc</strong></h4>
+                            <a class="btn btn-primary mb-1" [routerLink]="['/raceDetails', 'half-orc']">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col text-center">
+                <div class="col text-center">
+                    <div class="card mx-auto" style="width: 200px">
+                        <a [routerLink]="['/raceDetails', 'tiefling']"><img class="card-img top"
+                            src="https://www.dndbeyond.com/avatars/thumbnails/7/641/420/618/636287076637981942.png"></a>
+                        <div class="card=body">
+                            <h4 clas="card-title"><strong>Tiefling</strong></h4>
+                            <a class="btn btn-primary mb-1" [routerLink]="['/raceDetails', 'tiefling']">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+</div>
