@@ -4,6 +4,8 @@ import { SpellListComponent } from './spell-list/spell-list.component';
 import { SpellDetailsComponent } from './spell-details/spell-details.component';
 import { RouterModule } from '@angular/router';
 import { SchoolsOfMagicComponent } from './schools-of-magic/schools-of-magic.component';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -15,7 +17,9 @@ import { SchoolsOfMagicComponent } from './schools-of-magic/schools-of-magic.com
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    MatExpansionModule,
+    BrowserAnimationsModule
   ],
   exports: [
     SpellListComponent,

@@ -1,6 +1,30 @@
-<p>standard-items works!</p>
+<!-- <p>standard-items works!</p>
 <ol>
     <div *ngFor="let category of includedCategories">
         <li><a [routerLink]="['/itemCategory', category.index]">{{category.name}}</a></li>
     </div>
-</ol>
+</ol> -->
+
+<div class="container">
+    <div class="row mt-4 mb-3">
+        <div class="col text-center">
+            <h1 class="title"><strong>Items and Equipment By Category</strong></h1>
+        </div>
+
+    </div>
+    <div class="row mt-3 mb-3">
+        <div class="col">
+            <img src="https://www.dndbeyond.com/avatars/thumbnails/6/375/420/618/636272708661726603.png">
+        </div>
+        <div class="col text-center">
+            <ul class="list-group list-group-flush">
+                
+                    <li class="list-group-item list-group-item-action" *ngFor="let item of categoryList?.results"><a [routerLink]="['/itemCategory', item?.index]" >{{item.name}}</a></li>
+                
+            </ul>
+        </div>
+        <div class="col">
+            <img src="https://www.dndbeyond.com/avatars/thumbnails/6/365/420/618/636272701937419552.png">
+        </div>
+    </div>
+</div>

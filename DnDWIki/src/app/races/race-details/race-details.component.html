@@ -9,7 +9,7 @@
     <div class="row mt-3">
         <div class="col"></div>
         <div class="col">
-            <h1 class="title text-center title">{{raceDetails.name}}</h1>
+            <h1 class="title text-center title">{{raceDetails?.name}}</h1>
         </div>
         <div class="col"></div>
     </div>
@@ -21,7 +21,7 @@
             {{introduction}}
         </div>
     </div>
-    <div class="row">
+    <div class="row mt-3">
         <div class="col">
             <mat-accordion class="mx-auto" style="width: 80%">
                 <mat-expansion-panel>
@@ -29,10 +29,10 @@
                         <mat-panel-title>Description</mat-panel-title>
                     </mat-expansion-panel-header>
                     <ul>
-                        <li>Speed: {{raceDetails.speed}}</li>
-                        <li>Age: {{raceDetails.age}}</li>
-                        <li>Size: {{raceDetails.size}} - {{raceDetails.size_description}}</li>
-                        <li>Alignment: {{raceDetails.alignment}}</li>
+                        <li>Speed: {{raceDetails?.speed}}</li>
+                        <li>Age: {{raceDetails?.age}}</li>
+                        <li>Size: {{raceDetails?.size}} - {{raceDetails?.size_description}}</li>
+                        <li>Alignment: {{raceDetails?.alignment}}</li>
                     </ul>
                     {{physicalDescription}}
                 </mat-expansion-panel>
@@ -42,44 +42,44 @@
                         <mat-panel-title>Languages</mat-panel-title>
                     </mat-expansion-panel-header>
                     <ul>
-                        <div *ngFor="let language of raceDetails.languages">
-                            <li><a [routerLink]="['/languages']">{{language.name}}</a></li>
+                        <div *ngFor="let language of raceDetails?.languages">
+                            <li><a [routerLink]="['/languages', language?.index]">{{language?.name}}</a></li>
                         </div>
                     </ul>
-                    <p>{{raceDetails.language_desc}}</p>
-                    <div *ngIf="raceDetails.language_options != undefined">
-                        <h4>Additional Languages - Choose {{raceDetails.language_options.choose}}</h4>
+                    <p>{{raceDetails?.language_desc}}</p>
+                    <div *ngIf="raceDetails?.language_options != undefined">
+                        <h4>Additional Languages - Choose {{raceDetails?.language_options?.choose}}</h4>
                         <ul>
-                            <div *ngFor="let language of raceDetails.language_options.from.options">
-                                <li><a routerLink="/languages">{{language.item.name}}</a></li>
+                            <div *ngFor="let language of raceDetails?.language_options?.from?.options">
+                                <li><a [routerLink]="['/languages', language?.item?.index]">{{language?.item?.name}}</a></li>
                             </div>
                         </ul>
                     </div>
                 </mat-expansion-panel>
 
-                <mat-expansion-panel *ngIf="raceDetails.traits[0] != undefined">
+                <mat-expansion-panel *ngIf="raceDetails?.traits[0] != undefined">
                     <mat-expansion-panel-header>
                         <mat-panel-title>Traits</mat-panel-title>
                     </mat-expansion-panel-header>
                     <ul>
-                        <div *ngFor="let trait of raceDetails.traits">
-                            <li><a [routerLink]="['/traits', trait.index]">{{trait.name}}</a></li>
+                        <div *ngFor="let trait of raceDetails?.traits">
+                            <li><a [routerLink]="['/traits', trait?.index]">{{trait?.name}}</a></li>
                         </div>
                     </ul>
                 </mat-expansion-panel>
 
-                <mat-expansion-panel *ngIf="raceDetails.starting_proficiencies[0] != undefined">
+                <mat-expansion-panel *ngIf="raceDetails?.starting_proficiencies[0] != undefined">
                     <mat-expansion-panel-header>
                         <mat-panel-title>Starting Proficiencies</mat-panel-title>
                     </mat-expansion-panel-header>
                     <ul>
-                        <div *ngFor="let item of raceDetails.starting_proficiencies">
-                            <li> {{item.name}}</li>
+                        <div *ngFor="let item of raceDetails?.starting_proficiencies">
+                            <li> {{item?.name}}</li>
                         </div>
                     </ul>
-                    <div *ngIf="raceDetails.starting_proficiency_options != undefined">
-                        <h4>Additional Proficiencies - Choose {{raceDetails.starting_proficiency_options.choose}}</h4>
-                    <p>{{raceDetails.starting_proficiency_options.desc}}</p>
+                    <div *ngIf="raceDetails?.starting_proficiency_options != undefined">
+                        <h4>Additional Proficiencies - Choose {{raceDetails?.starting_proficiency_options?.choose}}</h4>
+                    <p>{{raceDetails?.starting_proficiency_options?.desc}}</p>
                     </div>
 
 
@@ -90,25 +90,63 @@
                         <mat-panel-title>Ability Bonus</mat-panel-title>
                     </mat-expansion-panel-header>
                     <ul>
-                        <div *ngFor="let bonus of raceDetails.ability_bonuses">
-                            <li>{{bonus.ability_score.name}}</li>
+                        <div *ngFor="let bonus of raceDetails?.ability_bonuses">
+                            <li>{{bonus?.ability_score?.name}}</li>
                             <ul>
-                                <li>Bonus: +{{bonus.bonus}}</li>
+                                <li>Bonus: +{{bonus?.bonus}}</li>
                             </ul>
                         </div>
                     </ul>
                 </mat-expansion-panel>
 
                 <!--FILL IN THE SUBRACE INFORMATION HERE -->
-                <mat-expansion-panel *ngIf="raceDetails.subraces[0] != undefined">
+                <mat-expansion-panel *ngIf="subrace != undefined" [expanded]="openSubrace">
                     <mat-expansion-panel-header>
                         <mat-panel-title>Subraces</mat-panel-title>
                     </mat-expansion-panel-header>
-                    <ul>
-                        <div *ngFor="let race of raceDetails.subraces">
-                            <li>{{race.name}}</li>
-                        </div>
-                    </ul>
+                    <h3><strong>{{subrace?.name}}</strong></h3>
+                    <h3>{{subrace.desc}}</h3>
+                    <h3>Ability Bonus: +{{subrace.ability_bonuses[0]?.bonus}} {{subrace.ability_bonuses[0]?.ability_score?.name}}</h3>
+                    <!--Racial Traits-->
+                    <div *ngIf="subrace?.racial_traits?.length > 0">
+                        <h3>Racial Traits: </h3>
+                        <ul>
+                            <div *ngFor="let trait of subrace?.racial_traits">
+                                <li><a [routerLink]="['/traits', trait?.index]">{{trait.name}}</a></li>
+                            </div>
+                        </ul>
+                    </div>
+
+                    <!--Starting Proficiencies-->
+                    <div *ngIf="subrace?.starting_proficiencies?.length > 0">
+                        <h3>Starting Proficiencies</h3>
+                        <ul>
+                            <div *ngFor="let item of subrace?.starting_proficiencies">
+                                <li>{{item?.name}}</li>
+                            </div>
+                        </ul>
+                    </div>
+
+                    <!--Language Options-->
+                    <div *ngIf="subrace?.language_options != undefined">
+                        <h3>{{subrace?.language_options?.choose}} Addtional Language Known - Choose From the Following</h3>
+                        <ul>
+                            <div *ngFor="let language of subrace?.language_options?.from?.options">
+                                <li><a [routerLink]="['/languages', language?.item?.index]">{{language?.item?.name}}</a></li>
+                            </div>
+                        </ul>
+                    </div>
+
+                    <!--PLACEHOLDER-->
+                    <!-- <div>
+                        <ul>
+                            <div *ngFor="let race of subrace.PLACEHOLDER">
+                                <li><strong></strong>
+                                    <h3>{{race.PLACEHOLDER}}</h3>
+                                </li>
+                            </div>
+                        </ul>
+                    </div> -->
                 </mat-expansion-panel>
             </mat-accordion>
         </div>

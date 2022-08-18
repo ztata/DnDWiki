@@ -1,31 +1,36 @@
-<!-- <p>schools-of-magic works!</p>
- <ul>
-    <div *ngFor="let item of schoolList">
-        <li>{{item?.desc}}</li>
-    </div>
-</ul>  -->
-
-<!--CENTER THIS IMAGE-->
 <div class="container">
     <div class="row">
         <div class="col">
 
         </div>
         <div class="col">
-            <img src="https://blackcitadelrpg.com/wp-content/uploads/2021/09/Schools-of-Magic-in-DnD-5e.jpg" width="700">
+            <img src="https://blackcitadelrpg.com/wp-content/uploads/2021/09/Schools-of-Magic-in-DnD-5e.jpg"
+                width="700">
         </div>
         <div class="col">
 
         </div>
     </div>
-    <div *ngFor="let item of schoolList">
-        <div class="row">
-            <div class="col text-center">
-                <h2 class="mt-3">{{item.name}}</h2>
-                <hr>
-                <h5>{{item.desc}}</h5>
-            </div>
+    <div class="row mt-3">
+        <div class="col text-center">
+            <h1 class="title">Schools of Magic</h1>
         </div>
     </div>
-</div>
+    <div class="row">
+        <div class="col text-center">
+            <mat-accordion>
+                <div *ngFor="let item of schoolList">
+                    <mat-expansion-panel class="mb-3">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title class="title">
+                                {{item.name}}
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <h3>{{item.desc}}</h3>
+                    </mat-expansion-panel>
+                </div>
+            </mat-accordion>
+        </div>
 
+    </div>
+</div>

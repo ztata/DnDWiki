@@ -1,7 +1,368 @@
-<p>spell-list works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col">
 
-<ul>
-    <div *ngFor="let spell of spellList.results">
-        <li><a [routerLink]="['/spellDetails', spell.index]">{{spell.name}}</a></li>
+        </div>
+        <div class="col">
+            <img src="https://blackcitadelrpg.com/wp-content/uploads/2021/09/Schools-of-Magic-in-DnD-5e.jpg"
+                width="700">
+        </div>
+        <div class="col">
+
+        </div>
     </div>
-</ul>
+    <div class="row mt-3">
+        <div class="col text-center">
+            <h1 class="title">Spells</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col ">
+            <mat-accordion>
+                <div *ngFor="let item of sortedList">
+                    <mat-expansion-panel class="mb-3" [expanded]="item?.open">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title class="title">
+                                {{item.id}}
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <!--ADD EACH SPELL EXPANSION PANEL HERE-->
+                        <mat-accordion>
+                            <div *ngFor="let spell of item?.features">
+                                <mat-expansion-panel class="mb-3" [expanded]="spell?.open">
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title class="title">{{spell?.name}}</mat-panel-title>
+                                    </mat-expansion-panel-header>
+                                    <div *ngFor="let sentence of spell?.desc">
+                                        <h3>{{sentence}}</h3>
+                                    </div>
+                                    <div *ngIf="spell?.higher_level?.length > 0">
+                                        <h3><strong>Higher Level:</strong></h3>
+                                        <div *ngFor="let sentence of spell?.higher_level">
+                                            <h3>{{sentence}}</h3>
+                                        </div>
+                                    </div>
+
+                                    <dl>
+                                        <dt>Range:</dt>
+                                        <dd> {{spell?.range}}</dd>
+                                        
+                                        <dt>Duration:</dt>
+                                        <dd>{{spell?.duration}}</dd>
+                                        
+                                        <dt>Concentration:</dt>
+                                        <dd>{{spell?.concentration}}</dd>
+                                        
+                                        <dt>Casting Time: </dt>
+                                        <dd>{{spell?.casting_time}}</dd>
+                                        
+                                        <dt>Level: </dt>
+                                        <dd>{{spell?.level}}</dd>
+                                        
+                                        <dt>School: </dt>
+                                        <dd>{{spell?.school?.name}}</dd>
+                        
+                                        <dt>Classes:</dt>
+                                        <dd>
+                                            <div *ngFor="let class of spell?.classes">
+                                                <li><a [routerLink]="['/classDetails', class?.index]">{{class?.name}}</a></li>
+                                            </div>
+                                         </dd>
+                                    </dl>
+
+                                    <!--Damage Tables-->
+                                    <div *ngIf="spell?.damage?.damage_at_slot_level != undefined">
+                                        <h3><strong>Damage</strong></h3>
+                                        <h3>Type: {{spell?.damage?.damage_type?.name}}</h3>
+                                    </div>
+                                    <!--DAMAGE AT SLOT LEVEL TABLE-->
+                                    <table class="table" *ngIf="spell?.damage?.damage_at_slot_level != undefined">
+                                        <thead>
+                                            <tr>
+                                                <th>Slot Level</th>
+                                                <th>Damage Die</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngIf="spell?.damage.damage_at_slot_level[1] != undefined">
+                                                <td>1</td>
+                                                <td>{{spell?.damage.damage_at_slot_level[1]}}</td>
+                                            </tr>
+                                            <tr *ngIf="spell?.damage.damage_at_slot_level[2] != undefined">
+                                                <td>2</td>
+                                                <td>{{spell?.damage.damage_at_slot_level[2]}}</td>
+                                            </tr>
+                                            <tr *ngIf="spell?.damage.damage_at_slot_level[3] != undefined">
+                                                <td>3</td>
+                                                <td>{{spell?.damage.damage_at_slot_level[3]}}</td>
+                                            </tr>
+                                            <tr *ngIf="spell?.damage.damage_at_slot_level[4] != undefined">
+                                                <td>4</td>
+                                                <td>{{spell?.damage.damage_at_slot_level[4]}}</td>
+                                            </tr>
+                                            <tr *ngIf="spell?.damage.damage_at_slot_level[5] != undefined">
+                                                <td>5</td>
+                                                <td>{{spell?.damage.damage_at_slot_level[5]}}</td>
+                                            </tr>
+                                            <tr *ngIf="spell?.damage.damage_at_slot_level[6] != undefined">
+                                                <td>6</td>
+                                                <td>{{spell?.damage.damage_at_slot_level[6]}}</td>
+                                            </tr>
+                                            <tr *ngIf="spell?.damage.damage_at_slot_level[7] != undefined">
+                                                <td>7</td>
+                                                <td>{{spell?.damage.damage_at_slot_level[7]}}</td>
+                                            </tr>
+                                            <tr *ngIf="spell?.damage.damage_at_slot_level[8] != undefined">
+                                                <td>8</td>
+                                                <td>{{spell?.damage.damage_at_slot_level[8]}}</td>
+                                            </tr>
+                                            <tr *ngIf="spell?.damage.damage_at_slot_level[9] != undefined">
+                                                <td>9</td>
+                                                <td>{{spell?.damage.damage_at_slot_level[9]}}</td>
+                                            </tr>
+                                            <tr *ngIf="spell?.damage.damage_at_slot_level[10] != undefined">
+                                                <td>10</td>
+                                                <td>{{spell?.damage.damage_at_slot_level[10]}}</td>
+                                            </tr>
+                                            <tr *ngIf="spell?.damage.damage_at_slot_level[11] != undefined">
+                                                <td>11</td>
+                                                <td>{{spell?.damage.damage_at_slot_level[11]}}</td>
+                                            </tr>
+                                            <tr *ngIf="spell?.damage.damage_at_slot_level[12] != undefined">
+                                                <td>12</td>
+                                                <td>{{spell?.damage.damage_at_slot_level[12]}}</td>
+                                            </tr>
+                                            <tr *ngIf="spell?.damage.damage_at_slot_level[13] != undefined">
+                                                <td>13</td>
+                                                <td>{{spell?.damage.damage_at_slot_level[13]}}</td>
+                                            </tr>
+                                            <tr *ngIf="spell?.damage.damage_at_slot_level[14] != undefined">
+                                                <td>14</td>
+                                                <td>{{spell?.damage.damage_at_slot_level[14]}}</td>
+                                            </tr>
+                                            <tr *ngIf="spell?.damage.damage_at_slot_level[15] != undefined">
+                                                <td>15</td>
+                                                <td>{{spell?.damage.damage_at_slot_level[15]}}</td>
+                                            </tr>
+                                            <tr *ngIf="spell?.damage.damage_at_slot_level[16] != undefined">
+                                                <td>16</td>
+                                                <td>{{spell?.damage.damage_at_slot_level[16]}}</td>
+                                            </tr>
+                                            <tr *ngIf="spell?.damage.damage_at_slot_level[17] != undefined">
+                                                <td>17</td>
+                                                <td>{{spell?.damage.damage_at_slot_level[17]}}</td>
+                                            </tr>
+                                            <tr *ngIf="spell?.damage.damage_at_slot_level[18] != undefined">
+                                                <td>18</td>
+                                                <td>{{spell?.damage.damage_at_slot_level[18]}}</td>
+                                            </tr>
+                                            <tr *ngIf="spell?.damage.damage_at_slot_level[19] != undefined">
+                                                <td>19</td>
+                                                <td>{{spell?.damage.damage_at_slot_level[19]}}</td>
+                                            </tr>
+                                            <tr *ngIf="spell?.damage.damage_at_slot_level[20] != undefined">
+                                                <td>20</td>
+                                                <td>{{spell?.damage.damage_at_slot_level[20]}}</td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+
+                                    <!--DAMAGE AT CHARACTER LEVEL TABLE-->
+                                    <table class="table" *ngIf="spell?.damage?.damage_at_character_level != undefined">
+                                        <thead>
+                                            <tr>
+                                                <th>Character Level</th>
+                                                <th>Damage Die</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngIf="spell?.damage.damage_at_character_level[1] != undefined">
+                                                <td>1</td>
+                                                <td>{{spell?.damage.damage_at_character_level[1]}}</td>
+                                            </tr>
+                                            <tr *ngIf="spell?.damage.damage_at_character_level[2] != undefined">
+                                                <td>2</td>
+                                                <td>{{spell?.damage.damage_at_character_level[2]}}</td>
+                                            </tr>
+                                            <tr *ngIf="spell?.damage.damage_at_character_level[3] != undefined">
+                                                <td>3</td>
+                                                <td>{{spell?.damage.damage_at_character_level[3]}}</td>
+                                            </tr>
+                                            <tr *ngIf="spell?.damage.damage_at_character_level[4] != undefined">
+                                                <td>4</td>
+                                                <td>{{spell?.damage.damage_at_character_level[4]}}</td>
+                                            </tr>
+                                            <tr *ngIf="spell?.damage.damage_at_character_level[5] != undefined">
+                                                <td>5</td>
+                                                <td>{{spell?.damage.damage_at_character_level[5]}}</td>
+                                            </tr>
+                                            <tr *ngIf="spell?.damage.damage_at_character_level[6] != undefined">
+                                                <td>6</td>
+                                                <td>{{spell?.damage.damage_at_character_level[6]}}</td>
+                                            </tr>
+                                            <tr *ngIf="spell?.damage.damage_at_character_level[7] != undefined">
+                                                <td>7</td>
+                                                <td>{{spell?.damage.damage_at_character_level[7]}}</td>
+                                            </tr>
+                                            <tr *ngIf="spell?.damage.damage_at_character_level[8] != undefined">
+                                                <td>8</td>
+                                                <td>{{spell?.damage.damage_at_character_level[8]}}</td>
+                                            </tr>
+                                            <tr *ngIf="spell?.damage.damage_at_character_level[9] != undefined">
+                                                <td>9</td>
+                                                <td>{{spell?.damage.damage_at_character_level[9]}}</td>
+                                            </tr>
+                                            <tr *ngIf="spell?.damage.damage_at_character_level[10] != undefined">
+                                                <td>10</td>
+                                                <td>{{spell?.damage.damage_at_character_level[10]}}</td>
+                                            </tr>
+                                            <tr *ngIf="spell?.damage.damage_at_character_level[11] != undefined">
+                                                <td>11</td>
+                                                <td>{{spell?.damage.damage_at_character_level[11]}}</td>
+                                            </tr>
+                                            <tr *ngIf="spell?.damage.damage_at_character_level[12] != undefined">
+                                                <td>12</td>
+                                                <td>{{spell?.damage.damage_at_character_level[12]}}</td>
+                                            </tr>
+                                            <tr *ngIf="spell?.damage.damage_at_character_level[13] != undefined">
+                                                <td>13</td>
+                                                <td>{{spell?.damage.damage_at_character_level[13]}}</td>
+                                            </tr>
+                                            <tr *ngIf="spell?.damage.damage_at_character_level[14] != undefined">
+                                                <td>14</td>
+                                                <td>{{spell?.damage.damage_at_character_level[14]}}</td>
+                                            </tr>
+                                            <tr *ngIf="spell?.damage.damage_at_character_level[15] != undefined">
+                                                <td>15</td>
+                                                <td>{{spell?.damage.damage_at_character_level[15]}}</td>
+                                            </tr>
+                                            <tr *ngIf="spell?.damage.damage_at_character_level[16] != undefined">
+                                                <td>16</td>
+                                                <td>{{spell?.damage.damage_at_character_level[16]}}</td>
+                                            </tr>
+                                            <tr *ngIf="spell?.damage.damage_at_character_level[17] != undefined">
+                                                <td>17</td>
+                                                <td>{{spell?.damage.damage_at_character_level[17]}}</td>
+                                            </tr>
+                                            <tr *ngIf="spell?.damage.damage_at_character_level[18] != undefined">
+                                                <td>18</td>
+                                                <td>{{spell?.damage.damage_at_character_level[18]}}</td>
+                                            </tr>
+                                            <tr *ngIf="spell?.damage.damage_at_character_level[19] != undefined">
+                                                <td>19</td>
+                                                <td>{{spell?.damage.damage_at_character_level[19]}}</td>
+                                            </tr>
+                                            <tr *ngIf="spell?.damage.damage_at_character_level[20] != undefined">
+                                                <td>20</td>
+                                                <td>{{spell?.damage.damage_at_character_level[20]}}</td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                    <!--HEALING TABLE-->
+                                    <div *ngIf="spell?.heal_at_slot_level != undefined">
+                                        <h3><strong>Healing</strong></h3>
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Level</th>
+                                                    <th>HP Restored</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr *ngIf="spell?.heal_at_slot_level[1] != undefined">
+                                                    <td>1</td>
+                                                    <td>{{spell?.heal_at_slot_level[1]}}</td>
+                                                </tr>
+                                                <tr *ngIf="spell?.heal_at_slot_level[2] != undefined">
+                                                    <td>2</td>
+                                                    <td>{{spell?.heal_at_slot_level[2]}}</td>
+                                                </tr>
+                                                <tr *ngIf="spell?.heal_at_slot_level[3] != undefined">
+                                                    <td>3</td>
+                                                    <td>{{spell?.heal_at_slot_level[3]}}</td>
+                                                </tr>
+                                                <tr *ngIf="spell?.heal_at_slot_level[4] != undefined">
+                                                    <td>4</td>
+                                                    <td>{{spell?.heal_at_slot_level[4]}}</td>
+                                                </tr>
+                                                <tr *ngIf="spell?.heal_at_slot_level[5] != undefined">
+                                                    <td>5</td>
+                                                    <td>{{spell?.heal_at_slot_level[5]}}</td>
+                                                </tr>
+                                                <tr *ngIf="spell?.heal_at_slot_level[6] != undefined">
+                                                    <td>6</td>
+                                                    <td>{{spell?.heal_at_slot_level[6]}}</td>
+                                                </tr>
+                                                <tr *ngIf="spell?.heal_at_slot_level[7] != undefined">
+                                                    <td>7</td>
+                                                    <td>{{spell?.heal_at_slot_level[7]}}</td>
+                                                </tr>
+                                                <tr *ngIf="spell?.heal_at_slot_level[8] != undefined">
+                                                    <td>8</td>
+                                                    <td>{{spell?.heal_at_slot_level[8]}}</td>
+                                                </tr>
+                                                <tr *ngIf="spell?.heal_at_slot_level[9] != undefined">
+                                                    <td>9</td>
+                                                    <td>{{spell?.heal_at_slot_level[9]}}</td>
+                                                </tr>
+                                                <tr *ngIf="spell?.heal_at_slot_level[10] != undefined">
+                                                    <td>10</td>
+                                                    <td>{{spell?.heal_at_slot_level[10]}}</td>
+                                                </tr>
+                                                <tr *ngIf="spell?.heal_at_slot_level[11] != undefined">
+                                                    <td>11</td>
+                                                    <td>{{spell?.heal_at_slot_level[11]}}</td>
+                                                </tr>
+                                                <tr *ngIf="spell?.heal_at_slot_level[12] != undefined">
+                                                    <td>12</td>
+                                                    <td>{{spell?.heal_at_slot_level[12]}}</td>
+                                                </tr>
+                                                <tr *ngIf="spell?.heal_at_slot_level[13] != undefined">
+                                                    <td>13</td>
+                                                    <td>{{spell?.heal_at_slot_level[13]}}</td>
+                                                </tr>
+                                                <tr *ngIf="spell?.heal_at_slot_level[14] != undefined">
+                                                    <td>14</td>
+                                                    <td>{{spell?.heal_at_slot_level[14]}}</td>
+                                                </tr>
+                                                <tr *ngIf="spell?.heal_at_slot_level[15] != undefined">
+                                                    <td>15</td>
+                                                    <td>{{spell?.heal_at_slot_level[15]}}</td>
+                                                </tr>
+                                                <tr *ngIf="spell?.heal_at_slot_level[16] != undefined">
+                                                    <td>16</td>
+                                                    <td>{{spell?.heal_at_slot_level[16]}}</td>
+                                                </tr>
+                                                <tr *ngIf="spell?.heal_at_slot_level[17] != undefined">
+                                                    <td>17</td>
+                                                    <td>{{spell?.heal_at_slot_level[17]}}</td>
+                                                </tr>
+                                                <tr *ngIf="spell?.heal_at_slot_level[18] != undefined">
+                                                    <td>18</td>
+                                                    <td>{{spell?.heal_at_slot_level[18]}}</td>
+                                                </tr>
+                                                <tr *ngIf="spell?.heal_at_slot_level[19] != undefined">
+                                                    <td>19</td>
+                                                    <td>{{spell?.heal_at_slot_level[19]}}</td>
+                                                </tr>
+                                                <tr *ngIf="spell?.heal_at_slot_level[20] != undefined">
+                                                    <td>20</td>
+                                                    <td>{{spell?.heal_at_slot_level[20]}}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+
+                                </mat-expansion-panel>
+                            </div>
+                        </mat-accordion>
+                    </mat-expansion-panel>
+                </div>
+            </mat-accordion>
+        </div>
+
+    </div>
+</div>

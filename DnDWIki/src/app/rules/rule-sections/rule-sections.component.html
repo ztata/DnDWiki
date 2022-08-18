@@ -1,6 +1,29 @@
-<p>rule-sections works!</p>
-<ul>
-    <div *ngFor="let rule of ruleList?.results">
-        <li><a [routerLink]="['/ruleSections', rule.index]" >{{rule.name}}</a></li>
+
+
+<div class="container">
+    <div class="row mt-4 mb-3">
+        <div class="col text-center">
+            <h1 class="title"><strong>Rules By Category</strong></h1>
+        </div>
+
     </div>
-</ul>
+    <div class="row mt-3 mb-3">
+        <div class="col">
+            <img src="https://www.dndbeyond.com/avatars/thumbnails/7/641/420/618/636287076637981942.png">
+        </div>
+        <div class="col text-center">
+            <ul class="list-group list-group-flush">
+                
+                    <li class="list-group-item list-group-item-action" *ngFor="let rule of ruleList?.results"><a [routerLink]="['/ruleSections', rule.index]" >{{rule.name}}</a></li>
+                
+            </ul>
+        </div>
+        <div class="col">
+            <img src="https://www.dndbeyond.com/avatars/thumbnails/7/639/420/618/636287075350739045.png">
+        </div>
+    </div>
+</div>
+
+          
+
+

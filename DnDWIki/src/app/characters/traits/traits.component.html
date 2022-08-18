@@ -42,7 +42,7 @@
         <div class="col text-left">
             <mat-accordion>
                 <div *ngFor="let item of sortedList">
-                    <mat-expansion-panel class="mb-3">
+                    <mat-expansion-panel class="mb-3" [expanded]="item.open">
                         <mat-expansion-panel-header>
                             <mat-panel-title>
                                 <h3 class="title"><strong>{{item?.id}}</strong></h3>
@@ -50,7 +50,7 @@
                         </mat-expansion-panel-header>
                         <mat-accordion>
                             <div *ngFor="let trait of item?.features">
-                                <mat-expansion-panel class="mb-3">
+                                <mat-expansion-panel class="mb-3" [expanded]="trait.open">
                                     <mat-expansion-panel-header>
                                         <mat-panel-title class="title">{{trait?.name}}</mat-panel-title>
                                     </mat-expansion-panel-header>
@@ -59,14 +59,14 @@
                                         <li *ngIf="trait?.races?.length > 0"><strong>Races:</strong> 
                                             <ul >
                                                 <div *ngFor="let race of trait?.races">
-                                                    <li>{{race?.name}}</li>
+                                                    <li><a [routerLink]="['/raceDetails', race?.index]">{{race?.name}}</a></li>
                                                 </div>
                                             </ul>
                                         </li>
                                         <li *ngIf="trait?.subraces?.length > 0"><strong>Subraces:</strong>
                                             <ul >
                                                 <div *ngFor="let subrace of trait?.subraces">
-                                                    <li>{{subrace?.name}}</li>
+                                                    <li><a [routerLink]="['/raceDetails', subrace?.index]">{{subrace?.name}}</a></li>
                                                 </div>
                                             </ul> </li>
                                         <li *ngIf="trait?.proficiencies?.length > 0"><strong>Proficiencies:</strong>

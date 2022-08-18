@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { WorldService } from '../world.service';
 
 @Component({
@@ -8,38 +9,50 @@ import { WorldService } from '../world.service';
 })
 export class LanguagesComponent implements OnInit {
 
-  constructor(private service: WorldService) { }
+  constructor(private service: WorldService, private route: ActivatedRoute) { }
 
-  /* UPDATE THIS SO IT HAS THE SAME PROPS AS THE API RESULT */
-  languageList = [
-    {name: 'abyssal', type: '', typical_speakers: [], script: ''}, 
-    {name: 'celestial', type: '', typical_speakers: [], script: ''}, 
-    {name: 'common', type: '', typical_speakers: [], script: ''}, 
-    {name: 'deep-speech', type: '', typical_speakers: [], script: ''}, 
-    {name: 'draconic', type: '', typical_speakers: [], script: ''}, 
-    {name: 'dwarvish', type: '', typical_speakers: [], script: ''}, 
-    {name: 'elvish', type: '', typical_speakers: [], script: ''}, 
-    {name: 'giant', type: '', typical_speakers: [], script: ''}, 
-    {name: 'gnomish', type: '', typical_speakers: [], script: ''}, 
-    {name: 'goblin', type: '', typical_speakers: [], script: ''}, 
-    {name: 'halfling', type: '', typical_speakers: [], script: ''}, 
-    {name: 'infernal', type: '', typical_speakers: [], script: ''}, 
-    {name: 'orc', type: '', typical_speakers: [], script: ''}, 
-    {name: 'primordial', type: '', typical_speakers: [], script: ''}, 
-    {name: 'sylvan', type: '', typical_speakers: [], script: ''}, 
-    {name: 'undercommon', type: '', typical_speakers: [], script: ''}]
+  languageList = [];
+  currentLanguage: string;
+  unsortedList: any;
 
-    ngOnInit(): void {
-      this.PopulateList(this.languageList); 
+  ngOnInit(): void {
+    this.currentLanguage = this.route.snapshot.paramMap.get("name");
+    console.log(this.currentLanguage)
+    this.service.ReturnLanguageList().subscribe(data => {
+      this.unsortedList = data
+      console.log('unsorted before list')
+      console.log(this.unsortedList)
+
+
+
+
+      console.log('unsorted list after retrieving the rest of the data')
+      for (let i = 0; i < this.unsortedList.results.length; i++) {
+        this.service.ReturnLanguageDetails(this.unsortedList.results[i].index).subscribe(data => {
+          this.unsortedList.results[i] = data;
+          if(this.unsortedList.results[i].index === this.currentLanguage){
+            this.unsortedList.results[i].open = true;
+          }
+          else{
+            this.unsortedList.results[i].open = false;
+          }
+
+        })
       }
-    
-      PopulateList(inputList: any[]) {
-        for (let i = 0; i < inputList.length; i++) {
-          this.service.ReturnLanguageDetails(inputList[i].name).subscribe(data => {inputList[i] = data});
+
+
+
+/* 
+      for (let i = 0; i < this.unsortedList.results.length; i++) {
+        if (this.unsortedList.results[i].index === this.currentLanguage) {
+          console.log('activated if statement')
+          this.unsortedList.results[i].open = true;
         }
-        return inputList;
-      } 
+      } */
 
-  
-
+      /* NEED TO ACTUALLY POPULATE THE DETAILS FOR THE LIST IT JUST HAS NAME INDEX ETC  */
+      console.log('unsorted list after OPEN if statement')
+      console.log(this.unsortedList)
+    })
+  }
 }

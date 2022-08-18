@@ -16,14 +16,53 @@ export class RaceDetailsComponent implements OnInit {
   introduction: string;
   physicalDescription: string;
   raceDetails: any;
+  racesWithSubraces = [
+    'halfling',
+    'elf',
+    'dwarf',
+    'gnome'
+  ]
+  subraceIndex: any;
+  subrace: any;
+  openSubrace: boolean = false;
 
   ngOnInit(): void {
     this.currentRace = this.route.snapshot.paramMap.get("name");
+    switch(this.currentRace){
+      case "high-elf":
+        this.currentRace = "elf"
+        this.openSubrace = true;
+        break;
+        case "hill-dwarf":
+        this.currentRace = "dwarf"
+        this.openSubrace = true;
+        break;
+        case "rock-gnome":
+        this.currentRace = "gnome"
+        this.openSubrace = true;
+        break;
+        case "lightfoot-halfling":
+        this.currentRace = "halfling"
+        this.openSubrace = true;
+        break;
+        default:
+          this.currentRace = this.currentRace;
+    }
+    this.RetrieveSubraceIndex(this.currentRace);
+    if(this.subraceIndex != undefined){
+      console.log("retrieving subrace")
+      this.service.ReturnSubraceDetails(this.subraceIndex).subscribe(data => 
+        {
+          this.subrace = data
+          console.log(this.subrace)
+        })
+    }
     this.GetImageUrl(this.currentRace);
     this.GetDescriptions(this.currentRace);
     this.service.ReturnRaceDetails(this.currentRace).subscribe(
-      data => (this.raceDetails = data)
+      data => {this.raceDetails = data}
     );
+    
   }
 
   GetImageUrl(name: string) {
@@ -96,6 +135,25 @@ export class RaceDetailsComponent implements OnInit {
         this.introduction = "To be greeted with stares and whispers, to suffer violence and insult on the street, to see mistrust and fear in every eye: this is the lot of the tiefling. And to twist the knife, tieflings know that this is because a pact struck generations ago infused the essence of Asmodeus—overlord of the Nine Hells—into their bloodline. Their appearance and their nature are not their fault but the result of an ancient sin, for which they and their children and their children’s children will always be held accountable.";
         this.physicalDescription = "Tieflings are derived from human bloodlines, and in the broadest possible sense, they still look human. However, their infernal heritage has left a clear imprint on their appearance. Tieflings have large horns that take any of a variety of shapes: some have curling horns like a ram, others have straight and tall horns like a gazelle’s, and some spiral upward like an antelopes’ horns. They have thick tails, four to five feet long, which lash or coil around their legs when they get upset or nervous. Their canine teeth are sharply pointed, and their eyes are solid colors—black, red, white, silver, or gold—with no visible sclera or pupil. Their skin tones cover the full range of human coloration, but also include various shades of red. Their hair, cascading down from behind their horns, is usually dark, from black or brown to dark red, blue, or purple. ";
         break;
+    }
+  }
+
+  RetrieveSubraceIndex(race) {
+    if (this.racesWithSubraces.includes(race)) {
+      switch (race) {
+        case "halfling":
+          this.subraceIndex = "lightfoot-halfling"
+          break;
+        case "dwarf":
+          this.subraceIndex = "hill-dwarf"
+          break;
+        case "elf":
+          this.subraceIndex = "high-elf"
+          break;
+        case "gnome":
+          this.subraceIndex = "rock-gnome"
+          break;
+      }
     }
 
   }
