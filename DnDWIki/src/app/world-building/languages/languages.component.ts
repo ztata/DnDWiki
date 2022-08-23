@@ -22,10 +22,6 @@ export class LanguagesComponent implements OnInit {
       this.unsortedList = data
       console.log('unsorted before list')
       console.log(this.unsortedList)
-
-
-
-
       console.log('unsorted list after retrieving the rest of the data')
       for (let i = 0; i < this.unsortedList.results.length; i++) {
         this.service.ReturnLanguageDetails(this.unsortedList.results[i].index).subscribe(data => {
@@ -39,18 +35,6 @@ export class LanguagesComponent implements OnInit {
 
         })
       }
-
-
-
-/* 
-      for (let i = 0; i < this.unsortedList.results.length; i++) {
-        if (this.unsortedList.results[i].index === this.currentLanguage) {
-          console.log('activated if statement')
-          this.unsortedList.results[i].open = true;
-        }
-      } */
-
-      /* NEED TO ACTUALLY POPULATE THE DETAILS FOR THE LIST IT JUST HAS NAME INDEX ETC  */
       console.log('unsorted list after OPEN if statement')
       console.log(this.unsortedList)
     })

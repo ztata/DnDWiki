@@ -19,7 +19,7 @@
         <div class="row mt-3">
             <mat-accordion>
                 <div *ngFor="let item of propertyList">
-                    <mat-expansion-panel class="mb-1">
+                    <mat-expansion-panel class="mb-1" [expanded]="item.open" >
                         <mat-expansion-panel-header>
                             <mat-panel-title class="title">{{item.name}}</mat-panel-title>
                         </mat-expansion-panel-header>

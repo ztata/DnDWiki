@@ -5,7 +5,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-class-list',
   templateUrl: './class-list.component.html',
-  styleUrls: ['./class-list.component.css']
+  styleUrls: ['./class-list.component.css'],
+  animations: []
 })
 export class ClassListComponent implements OnInit {
 

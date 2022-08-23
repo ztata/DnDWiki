@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { EquipmentService } from '../equipment.service';
 
 @Component({
@@ -8,10 +9,10 @@ import { EquipmentService } from '../equipment.service';
 })
 export class WeaponPropertiesComponent implements OnInit {
 
-  constructor(private service: EquipmentService) { }
+  constructor(private service: EquipmentService, private route: ActivatedRoute) { }
 
   propertyList = [
-    {index: "ammunition", name: "", desc: []},
+    {index: "ammunition", name: "", desc: [], open:undefined},
     {index: "finesse", name: "", desc: []},
     {index: "heavy", name: "", desc: []},
     {index: "light", name: "", desc: []},
@@ -24,13 +25,25 @@ export class WeaponPropertiesComponent implements OnInit {
     {index: "versatile", name: "", desc: []},
   ]
 
+  currentProp: any;
+
   ngOnInit(): void {
+    this.currentProp = this.route.snapshot.paramMap.get("name");
     this.PopulateList(this.propertyList)
   }
 
   PopulateList(inputList: any[]) {
     for (let i = 0; i < inputList.length; i++) {
-      this.service.ReturnWeaponPropertyDetails(inputList[i].index).subscribe(data => {inputList[i] = data});
+      this.service.ReturnWeaponPropertyDetails(inputList[i].index).subscribe(data => 
+        {inputList[i] = data
+          if(inputList[i].index === this.currentProp){
+            inputList[i].open = true;
+          }
+          else{
+            inputList[i].open = false; 
+          }
+                 
+        });
     }
     console.log(inputList)
     return inputList;
