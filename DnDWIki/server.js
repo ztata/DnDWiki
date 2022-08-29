@@ -4,5 +4,5 @@ const app = express();
 app.use(express.static(__dirname + '/dist/dn-dwiki'));
 app.get('/*', function(req,res) {
 res.sendFile(path.join(__dirname+
-'/dist/dn-dwiki/index.html'));});
+'/dist/<app-name>/index.html'));});
 app.listen(process.env.PORT || 8080);
