@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/745f6dae-bd19-437a-b56c-e3e7b537cbdc/microsoft.web/sites/subscriptions/745f6dae-bd19-437a-b56c-e3e7b537cbdc/resourceGroups/PortfolioProjects/providers/Microsoft.Web/sites/ztatadungeonCrawler",
+    "appService.deploySubpath": "dist\\dn-dwiki"
+}
