@@ -28,41 +28,39 @@ export class RaceDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.currentRace = this.route.snapshot.paramMap.get("name");
-    switch(this.currentRace){
+    switch (this.currentRace) {
       case "high-elf":
         this.currentRace = "elf"
         this.openSubrace = true;
         break;
-        case "hill-dwarf":
+      case "hill-dwarf":
         this.currentRace = "dwarf"
         this.openSubrace = true;
         break;
-        case "rock-gnome":
+      case "rock-gnome":
         this.currentRace = "gnome"
         this.openSubrace = true;
         break;
-        case "lightfoot-halfling":
+      case "lightfoot-halfling":
         this.currentRace = "halfling"
         this.openSubrace = true;
         break;
-        default:
-          this.currentRace = this.currentRace;
+      default:
+        this.currentRace = this.currentRace;
     }
     this.RetrieveSubraceIndex(this.currentRace);
-    if(this.subraceIndex != undefined){
+    if (this.subraceIndex != undefined) {
       console.log("retrieving subrace")
-      this.service.ReturnSubraceDetails(this.subraceIndex).subscribe(data => 
-        {
-          this.subrace = data
-          console.log(this.subrace)
-        })
+      this.service.ReturnSubraceDetails(this.subraceIndex).subscribe(data => {
+        this.subrace = data
+      })
     }
     this.GetImageUrl(this.currentRace);
     this.GetDescriptions(this.currentRace);
     this.service.ReturnRaceDetails(this.currentRace).subscribe(
-      data => {this.raceDetails = data}
+      data => { this.raceDetails = data }
     );
-    
+
   }
 
   GetImageUrl(name: string) {
@@ -155,7 +153,5 @@ export class RaceDetailsComponent implements OnInit {
           break;
       }
     }
-
   }
-
 }

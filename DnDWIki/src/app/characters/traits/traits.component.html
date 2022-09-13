@@ -1,28 +1,4 @@
-<!-- <div class="container">
-    <div class="row mt-3 mb-3">
-        <div class="col text-center">
-            <h1 class="title"><strong>Traits</strong></h1>
-        </div>
-    </div>
-    <div class="row mt-3 mb-3">
-        <div class="col">
-
-        </div>
-        <div class="col text-center">
-            <ul class="list-group list-group-flush">
-                <div *ngFor="let trait of traitsCollection.results">
-                    <li class="list-group-item"><a [routerLink]="['/traits', trait.index]">{{trait.name}}</a></li>
-                </div>
-            </ul>
-        </div>
-        <div class="col">
-
-        </div>
-    </div>
-</div> -->
-
 <div class="container">
-    <!--image-->
     <div class="row mt-3 mb-3">
         <div class="col"></div>
         <div class="col">
@@ -31,13 +7,11 @@
         </div>
         <div class="col"></div>
     </div>
-    <!--title-->
     <div class="row mt-3 mb-3">
         <div class="col text-center">
             <h1 class="title big"><strong>Traits</strong></h1>
         </div>
     </div>
-    <!--accordion holding trait information-->
     <div class="row mt-3 mb-3">
         <div class="col text-left">
             <mat-accordion>
@@ -56,41 +30,32 @@
                                     </mat-expansion-panel-header>
                                     <h3>{{trait?.desc}}</h3>
                                     <ul>
-                                        <li *ngIf="trait?.races?.length > 0"><strong>Races:</strong> 
-                                            <ul >
+                                        <li *ngIf="trait?.races?.length > 0"><strong>Races:</strong>
+                                            <ul>
                                                 <div *ngFor="let race of trait?.races">
-                                                    <li><a [routerLink]="['/raceDetails', race?.index]">{{race?.name}}</a></li>
+                                                    <li><a
+                                                            [routerLink]="['/raceDetails', race?.index]">{{race?.name}}</a>
+                                                    </li>
                                                 </div>
                                             </ul>
                                         </li>
                                         <li *ngIf="trait?.subraces?.length > 0"><strong>Subraces:</strong>
-                                            <ul >
+                                            <ul>
                                                 <div *ngFor="let subrace of trait?.subraces">
-                                                    <li><a [routerLink]="['/raceDetails', subrace?.index]">{{subrace?.name}}</a></li>
+                                                    <li><a
+                                                            [routerLink]="['/raceDetails', subrace?.index]">{{subrace?.name}}</a>
+                                                    </li>
                                                 </div>
-                                            </ul> </li>
+                                            </ul>
+                                        </li>
                                         <li *ngIf="trait?.proficiencies?.length > 0"><strong>Proficiencies:</strong>
-                                            <ul >
+                                            <ul>
                                                 <div *ngFor="let proficiency of trait?.proficiencies">
                                                     <li>{{proficiency?.name}}</li>
                                                 </div>
                                             </ul>
-                                         </li>
+                                        </li>
                                     </ul>
-
-
-
-
-
-
-
-
-
-
-
-
-                                    
-                                    
                                 </mat-expansion-panel>
                             </div>
                         </mat-accordion>

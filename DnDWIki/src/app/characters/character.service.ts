@@ -1,7 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { ITraits } from '../Interfaces/ITraits';
-import { ITraitsCollection } from '../Interfaces/ITraitsCollection';
 
 @Injectable({
   providedIn: 'root'
@@ -15,28 +13,28 @@ export class CharacterService {
   private skillUri = "https://www.dnd5eapi.co/api/skills";
   private featuresUri = "https://www.dnd5eapi.co/api/features";
 
-  ReturnTraitsList(){
+  ReturnTraitsList() {
     return this.http.get(`${this.traitsUri}`);
   }
 
-  ReturnTraitsDetails(name: string){
+  ReturnTraitsDetails(name: string) {
     return this.http.get(`${this.traitsUri}/${name}`);
   }
 
-  ReturnAlignmentDetails(name: string){
+  ReturnAlignmentDetails(name: string) {
     return this.http.get(`${this.alignmentUri}/${name}`);
   }
 
-  ReturnSkillDetails(name:string){
+  ReturnSkillDetails(name: string) {
     return this.http.get(`${this.skillUri}/${name}`);
   }
 
-  ReturnFeaturesList(){
+  ReturnFeaturesList() {
     console.log('called return features list function')
     return this.http.get(`${this.featuresUri}`);
   }
 
-  ReturnFeatureDetails(name: string){
+  ReturnFeatureDetails(name: string) {
     return this.http.get(`${this.featuresUri}/${name}`);
   }
 }

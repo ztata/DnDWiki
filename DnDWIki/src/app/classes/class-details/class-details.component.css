@@ -1,16 +1,12 @@
-img{
-    /* border: 1px red solid; */
+img {
     display: block;
     margin: auto;
 }
 
-.title{
+.title {
     font-family: 'Eagle Lake', cursive;
 }
 
-mat-expansion-panel{
+mat-expansion-panel {
     margin-bottom: 0.5%;
 }
-
-
-

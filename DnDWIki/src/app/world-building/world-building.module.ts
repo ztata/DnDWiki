@@ -25,7 +25,6 @@ import { RouterModule } from '@angular/router';
     LanguagesComponent,
     MonstersDetailsComponent,
     MonstersListComponent
-    
   ]
 })
 export class WorldBuildingModule { }

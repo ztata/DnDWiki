@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { CharacterService } from '../character.service';
 
 
@@ -16,7 +16,7 @@ export class TraitsDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.traitName = this.route.snapshot.paramMap.get("name");
-    this.service.ReturnTraitsDetails(this.traitName).subscribe(data => {this.traitDetails = data})
+    this.service.ReturnTraitsDetails(this.traitName).subscribe(data => { this.traitDetails = data })
   }
 
 }

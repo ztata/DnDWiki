@@ -7,15 +7,13 @@ import { RouterModule } from '@angular/router';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-
-
 @NgModule({
   declarations: [
     ClassListComponent,
     ClassDetailsComponent
   ],
   imports: [
-    CommonModule, 
+    CommonModule,
     RouterModule,
     MatExpansionModule,
     BrowserAnimationsModule

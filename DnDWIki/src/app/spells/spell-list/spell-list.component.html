@@ -26,7 +26,6 @@
                                 {{item.id}}
                             </mat-panel-title>
                         </mat-expansion-panel-header>
-                        <!--ADD EACH SPELL EXPANSION PANEL HERE-->
                         <mat-accordion>
                             <div *ngFor="let spell of item?.features">
                                 <mat-expansion-panel class="mb-3" [expanded]="spell?.open">
@@ -46,28 +45,30 @@
                                     <dl>
                                         <dt>Range:</dt>
                                         <dd> {{spell?.range}}</dd>
-                                        
+
                                         <dt>Duration:</dt>
                                         <dd>{{spell?.duration}}</dd>
-                                        
+
                                         <dt>Concentration:</dt>
                                         <dd>{{spell?.concentration}}</dd>
-                                        
+
                                         <dt>Casting Time: </dt>
                                         <dd>{{spell?.casting_time}}</dd>
-                                        
+
                                         <dt>Level: </dt>
                                         <dd>{{spell?.level}}</dd>
-                                        
+
                                         <dt>School: </dt>
                                         <dd>{{spell?.school?.name}}</dd>
-                        
+
                                         <dt>Classes:</dt>
                                         <dd>
                                             <div *ngFor="let class of spell?.classes">
-                                                <li><a [routerLink]="['/classDetails', class?.index]">{{class?.name}}</a></li>
+                                                <li><a
+                                                        [routerLink]="['/classDetails', class?.index]">{{class?.name}}</a>
+                                                </li>
                                             </div>
-                                         </dd>
+                                        </dd>
                                     </dl>
 
                                     <!--Damage Tables-->

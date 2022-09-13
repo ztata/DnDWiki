@@ -15,7 +15,6 @@ export class RuleSectionsComponent implements OnInit {
   ngOnInit(): void {
     this.service.ReturnRules().subscribe(data => {
       this.ruleList = data
-      console.log(this.ruleList)
     })
   }
 

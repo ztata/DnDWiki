@@ -19,23 +19,21 @@ export class DamageTypesComponent implements OnInit {
     this.service.ReturnDamageList().subscribe(data => {
       this.damageList = data
       this.PopulateList(this.damageList.results)
-      console.log(this.damageList)
     })
   }
 
   PopulateList(inputList: any[]) {
     for (let i = 0; i < inputList.length; i++) {
-      this.service.ReturnDamageDetails(inputList[i].index).subscribe(data => { 
-        inputList[i] = data 
-        if(inputList[i].index === this.currentType){
+      this.service.ReturnDamageDetails(inputList[i].index).subscribe(data => {
+        inputList[i] = data
+        if (inputList[i].index === this.currentType) {
           inputList[i].open = true;
         }
-        else{
+        else {
           inputList[i].open = false;
         }
       });
     }
     return inputList;
   }
-
 }

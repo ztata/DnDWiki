@@ -1,29 +1,9 @@
-<!-- <p>item-category works!</p>
-<div *ngIf="displayMessage === false">
-    <div *ngFor="let letter of sortedList">
-        <div *ngIf="letter?.features[0]?.name != undefined">
-            <h1>{{letter.id}}</h1>
-        <ul>
-            <div *ngFor="let item of letter.features">
-                <li>
-                    {{item.name}}
-                </li>
-            </div>
-        </ul>
-        <hr>
-        </div>
-    </div>
-</div>
-<div *ngIf="displayMessage === true">
-    <h1>{{message}}</h1>
-</div> -->
-
 <div class="container">
     <div class="row">
         <div class="col"></div>
         <div class="col">
-            <!--REPLACE THIS IMAGE-->
-            <img class="mt-3" width="900px" src="https://mygamenightblog.files.wordpress.com/2019/03/phandelver-banner.jpg?w=1920&h=540&crop=1">
+            <img class="mt-3" width="900px"
+                src="https://mygamenightblog.files.wordpress.com/2019/03/phandelver-banner.jpg?w=1920&h=540&crop=1">
         </div>
         <div class="col"></div>
     </div>
@@ -33,97 +13,87 @@
             <h1 class="title">{{category?.name}}</h1>
         </div>
     </div>
-   <!--  <div class="row">
-        <div class="col text-center">
-            <div *ngIf="displayMessage === true">
-                <h1>{{message}}</h1>
-            </div>            
-        </div>
-    </div> -->
-        <div class="row">
-            <div class="col">
-                <mat-accordion>
-                    <div *ngFor="let item of sortedList">
-                        <div *ngIf="item?.features[0]?.name != undefined">
-                            <mat-expansion-panel class="mb-1">
-                                <mat-expansion-panel-header>
-                                    <mat-panel-title class="title">{{item?.id}}</mat-panel-title>
-                                </mat-expansion-panel-header>
-        
-    
-                                <mat-accordion>
-                                    <div *ngFor="let feature of item?.features">
-                                        <mat-expansion-panel class="mb-1">
-                                            <mat-expansion-panel-header>
-                                                <mat-panel-title class="title">{{feature?.name}}</mat-panel-title>
-                                            </mat-expansion-panel-header>
-                                            <div *ngFor="let desc of feature?.desc">
-                                                <h3>{{desc}}</h3>
-                                            </div>
-                                            <h4 *ngIf="feature?.quantity != undefined"><strong>Quantity: </strong> {{feature?.quantity}}</h4>
-                                            <h4><strong>Cost: </strong> {{feature?.cost?.quantity}} {{feature?.cost?.unit}}</h4>
-                                            <h4 *ngIf="feature?.weight != undefined"><strong>Weight: </strong> {{feature?.weight}} pounds</h4>
-                                            <h4 *ngIf="feature?.gear_category?.name != undefined"><strong>Category: </strong>{{feature?.gear_category?.name}}</h4>                                       
-                                            <!--armor-->
-                                            <div *ngIf="feature?.armor_category != undefined">
-                                                <h4><strong>Armor Category: </strong>{{feature?.armor_category}}</h4>
-                                                <h4><strong>Armor Class: </strong> {{feature?.armor_class?.base}}</h4>
-                                                <h4><strong>Strength Minimum: </strong>{{feature?.str_minimum}}</h4>
-                                                <h4><strong>Stealth Disadvantage: </strong>{{feature?.stealth_disadvantage}}</h4>
-                                            </div>
-    
-                                            <!--weapons-->
-                                            <div *ngIf="feature?.weapon_category != undefined">
-                                                <h4><strong>Type: </strong>{{feature?.category_range}}</h4>
-                                                <h4><strong>Range: </strong> {{feature?.range?.normal}} feet</h4>
-                                                <h4 *ngIf="feature?.throw_range?.normal != undefined"><strong> Thrown Range: </strong> {{feature?.throw_range?.normal}} feet (normal) {{feature?.throw_range?.long}} feet (long)</h4>
-                                                <h4><strong>Damage: </strong>{{feature?.damage?.damage_dice}} <a [routerLink]="['/damageTypes', feature?.damage?.damage_type?.index]">{{feature?.damage?.damage_type?.name}}</a></h4>
-                                                <h4 *ngIf="feature?.properties[0]?.name != undefined"><strong>Properties: </strong>
-                                                    <ul>
-                                                        <div *ngFor="let prop of feature?.properties">
-                                                            <li><a [routerLink]="['/weaponProperties', prop.index]">{{prop.name}} </a> </li>
-                                                        </div>
-                                                    </ul>
-                                                    </h4>
-                                            </div>
-    
-                                            <!--vehicles-->
-                                            <div *ngIf="feature?.vehicle_category != undefined">
-                                                <h4><strong>Speed: </strong>{{feature?.speed?.quantity}} {{feature?.speed?.unit}}</h4>
-                                                <h4 *ngIf="feature?.capacity != undefined"><strong>Capacity: </strong>{{feature?.capacity}}</h4>
-                                            </div>
-    
-                                            <!--contents-->
-                                            <div *ngIf="feature?.contents != '' ">
-                                                <h4><strong>Contents: </strong>
+    <div class="row">
+        <div class="col">
+            <mat-accordion>
+                <div *ngFor="let item of sortedList">
+                    <div *ngIf="item?.features[0]?.name != undefined">
+                        <mat-expansion-panel class="mb-1">
+                            <mat-expansion-panel-header>
+                                <mat-panel-title class="title">{{item?.id}}</mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <mat-accordion>
+                                <div *ngFor="let feature of item?.features">
+                                    <mat-expansion-panel class="mb-1">
+                                        <mat-expansion-panel-header>
+                                            <mat-panel-title class="title">{{feature?.name}}</mat-panel-title>
+                                        </mat-expansion-panel-header>
+                                        <div *ngFor="let desc of feature?.desc">
+                                            <h3>{{desc}}</h3>
+                                        </div>
+                                        <h4 *ngIf="feature?.quantity != undefined"><strong>Quantity: </strong>
+                                            {{feature?.quantity}}</h4>
+                                        <h4><strong>Cost: </strong> {{feature?.cost?.quantity}} {{feature?.cost?.unit}}
+                                        </h4>
+                                        <h4 *ngIf="feature?.weight != undefined"><strong>Weight: </strong>
+                                            {{feature?.weight}} pounds</h4>
+                                        <h4 *ngIf="feature?.gear_category?.name != undefined"><strong>Category:
+                                            </strong>{{feature?.gear_category?.name}}</h4>
+                                        <div *ngIf="feature?.armor_category != undefined">
+                                            <h4><strong>Armor Category: </strong>{{feature?.armor_category}}</h4>
+                                            <h4><strong>Armor Class: </strong> {{feature?.armor_class?.base}}</h4>
+                                            <h4><strong>Strength Minimum: </strong>{{feature?.str_minimum}}</h4>
+                                            <h4><strong>Stealth Disadvantage: </strong>{{feature?.stealth_disadvantage}}
+                                            </h4>
+                                        </div>
+                                        <div *ngIf="feature?.weapon_category != undefined">
+                                            <h4><strong>Type: </strong>{{feature?.category_range}}</h4>
+                                            <h4><strong>Range: </strong> {{feature?.range?.normal}} feet</h4>
+                                            <h4 *ngIf="feature?.throw_range?.normal != undefined"><strong> Thrown Range:
+                                                </strong> {{feature?.throw_range?.normal}} feet (normal)
+                                                {{feature?.throw_range?.long}} feet (long)</h4>
+                                            <h4><strong>Damage: </strong>{{feature?.damage?.damage_dice}} <a
+                                                    [routerLink]="['/damageTypes', feature?.damage?.damage_type?.index]">{{feature?.damage?.damage_type?.name}}</a>
+                                            </h4>
+                                            <h4 *ngIf="feature?.properties[0]?.name != undefined"><strong>Properties:
+                                                </strong>
+                                                <ul>
+                                                    <div *ngFor="let prop of feature?.properties">
+                                                        <li><a [routerLink]="['/weaponProperties', prop.index]">{{prop.name}}
+                                                            </a> </li>
+                                                    </div>
+                                                </ul>
+                                            </h4>
+                                        </div>
+                                        <div *ngIf="feature?.vehicle_category != undefined">
+                                            <h4><strong>Speed: </strong>{{feature?.speed?.quantity}}
+                                                {{feature?.speed?.unit}}</h4>
+                                            <h4 *ngIf="feature?.capacity != undefined"><strong>Capacity:
+                                                </strong>{{feature?.capacity}}</h4>
+                                        </div>
+                                        <div *ngIf="feature?.contents != '' ">
+                                            <h4><strong>Contents: </strong>
                                                 <ul>
                                                     <div *ngFor="let thing of feature?.contents">
                                                         <li>{{thing?.item?.name}} x {{thing?.quantity}}</li>
                                                     </div>
                                                 </ul>
-                                                </h4>
-                                            </div>
-    
-    
-    
-    
-    
-                                            <!--add something in to remove the category from the list if it is all magic stuff-->
-                                          
-                                        </mat-expansion-panel>
-                                    </div>
-                                </mat-accordion>
-                            </mat-expansion-panel>
-                        </div>
+                                            </h4>
+                                        </div>
+                                    </mat-expansion-panel>
+                                </div>
+                            </mat-accordion>
+                        </mat-expansion-panel>
                     </div>
-                </mat-accordion>
-            </div>
-        </div>
-        <div class="row mt-3">
-            <div class="col text-center">
-                <div class="d-flex">
-                    <button class="btn btn-primary mx-auto" [routerLink]="['/items']">Back to List</button>
                 </div>
+            </mat-accordion>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col text-center">
+            <div class="d-flex">
+                <button class="btn btn-primary mx-auto" [routerLink]="['/items']">Back to List</button>
             </div>
         </div>
+    </div>
 </div>

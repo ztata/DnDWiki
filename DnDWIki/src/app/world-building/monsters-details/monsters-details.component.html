@@ -22,7 +22,6 @@
             <h3 class="mt-1">Armor Class: {{monster?.armor_class}}</h3>
             <h3>Hit Points: {{monster?.hit_points}}</h3>
             <h3>Speed:
-                <!--consider adding spans here with ngifs to handle adding or removing commas-->
                 <span *ngIf="monster?.speed.walk != undefined">{{monster?.speed.walk}} walking </span>
                 <span *ngIf="monster?.speed.fly != undefined">{{monster?.speed.fly}} flying </span>
                 <span *ngIf="monster?.speed.swim != undefined">{{monster?.speed.swim}} swimming</span>

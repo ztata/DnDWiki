@@ -1,93 +1,66 @@
-<!-- <nav class="navbar navbar-light bg-dark">
-    <ul class="navbar-nav mr-auto">
-        <li class="nav-item active"><a class="nav-link" routerLink="/classList" routerLinkActive="active">Class List</a></li>
-    <li><a routerLink="/home" routerLinkActive="active"> home</a></li>
-    </ul>
-</nav>
- -->
-
-
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#"><img src="/assets/d20.svg" height="75px" width="75px"></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarText">
-      <ul class="navbar-nav mr-auto">
-
-
-        
-
-
-
-      <!--   <li class="nav-item active">
-          <a class="nav-link" routerLink="" routerLinkActive="active">Home</a>
-        </li> -->
-       
-        <li class="nav-item dropdown">
-          <a class="nav-link  dropdown-toggle" href="#" data-bs-toggle="dropdown">  Character  </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" routerLink="/classList" routerLinkActive="active">Classes</a></li>
+  <a class="navbar-brand" href="#"><img src="/assets/d20.svg" height="75px" width="75px"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+    aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item dropdown">
+        <a class="nav-link  dropdown-toggle" href="#" data-bs-toggle="dropdown"> Character </a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" routerLink="/classList" routerLinkActive="active">Classes</a></li>
           <li><a class="dropdown-item" routerLink="/raceList" routerLinkActive="active">Races</a></li>
           <li><a class="dropdown-item" routerLink="/alignments" routerLinkActive="active">Alignments</a></li>
-          <!-- <li><a class="dropdown-item" routerLink="/backgrounds" routerLinkActive="active">Backgrounds</a></li>
-          <li><a class="dropdown-item" routerLink="/feats" routerLinkActive="active">Feats</a></li> -->
           <li><a class="dropdown-item" routerLink="/features" routerLinkActive="active">Features</a></li>
           <li><a class="dropdown-item" routerLink="/skills" routerLinkActive="active">Skills</a></li>
           <li><a class="dropdown-item" routerLink="/traits" routerLinkActive="active">Traits</a></li>
-          </ul>
-        </li>
+        </ul>
+      </li>
 
-        <li class="nav-item dropdown">
-          <a class="nav-link  dropdown-toggle" href="#" data-bs-toggle="dropdown">  Magic  </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" routerLink="/schoolsOfMagic" routerLinkActive="active">Schools of Magic</a></li>
-            <li><a class="dropdown-item" routerLink="/spellList" routerLinkActive="active">Spell List</a></li>
-          </ul>
-        </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link  dropdown-toggle" href="#" data-bs-toggle="dropdown"> Magic </a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" routerLink="/schoolsOfMagic" routerLinkActive="active">Schools of Magic</a></li>
+          <li><a class="dropdown-item" routerLink="/spellList" routerLinkActive="active">Spell List</a></li>
+        </ul>
+      </li>
 
-        <li class="nav-item dropdown">
-          <a class="nav-link  dropdown-toggle" href="#" data-bs-toggle="dropdown">  World Building  </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" routerLink="/languages" routerLinkActive="active">Languages</a></li>
-            <li><a class="dropdown-item" routerLink="/monsterList" routerLinkActive="active">Monsters</a></li>
+      <li class="nav-item dropdown">
+        <a class="nav-link  dropdown-toggle" href="#" data-bs-toggle="dropdown"> World Building </a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" routerLink="/languages" routerLinkActive="active">Languages</a></li>
+          <li><a class="dropdown-item" routerLink="/monsterList" routerLinkActive="active">Monsters</a></li>
 
-          </ul>
-        </li>
+        </ul>
+      </li>
 
-        <li class="nav-item dropdown">
-          <a class="nav-link  dropdown-toggle" href="#" data-bs-toggle="dropdown">  Equipment  </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" routerLink="/magicItems" routerLinkActive="active">Enchanted Items</a></li>
-            <li><a class="dropdown-item" routerLink="/items" routerLinkActive="active">Items and Equipment</a></li>
-            <li><a class="dropdown-item" routerLink="/weaponProperties" routerLinkActive="active">Weapon Properties</a></li>
-          </ul>
-        </li>
-
-        <li class="nav-item dropdown">
-          <a class="nav-link  dropdown-toggle" href="#" data-bs-toggle="dropdown">  Rules  </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" routerLink="/conditions" routerLinkActive="active">Conditions</a></li>
-            <li><a class="dropdown-item" routerLink="/damageTypes" routerLinkActive="active">Damage Types</a></li>
-            <li><a class="dropdown-item" routerLink="/generalRules" routerLinkActive="active">All Rules</a></li>
-            <!-- <li><a class="dropdown-item" routerLink="/proficiencies" routerLinkActive="active">Proficiencies</a></li> -->
-            <li><a class="dropdown-item" routerLink="/ruleSections" routerLinkActive="active">Rules By Section</a></li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-  </nav>
+      <li class="nav-item dropdown">
+        <a class="nav-link  dropdown-toggle" href="#" data-bs-toggle="dropdown"> Equipment </a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" routerLink="/magicItems" routerLinkActive="active">Enchanted Items</a></li>
+          <li><a class="dropdown-item" routerLink="/items" routerLinkActive="active">Items and Equipment</a></li>
+          <li><a class="dropdown-item" routerLink="/weaponProperties" routerLinkActive="active">Weapon Properties</a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="nav-item dropdown">
+        <a class="nav-link  dropdown-toggle" href="#" data-bs-toggle="dropdown"> Rules </a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" routerLink="/conditions" routerLinkActive="active">Conditions</a></li>
+          <li><a class="dropdown-item" routerLink="/damageTypes" routerLinkActive="active">Damage Types</a></li>
+          <li><a class="dropdown-item" routerLink="/generalRules" routerLinkActive="active">All Rules</a></li>
+          <li><a class="dropdown-item" routerLink="/ruleSections" routerLinkActive="active">Rules By Section</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</nav>
 
 
 <div class="background">
   <router-outlet></router-outlet>
   <br>
-<br>
+  <br>
 </div>
-
-<!-- 
-<footer class="bg-dark text-center text-white fixed-bottom">
-    <br>
-    <br>
-<h1 class="text-center">PUT SOME STUFF IN THE FOOTER</h1>
-</footer> -->

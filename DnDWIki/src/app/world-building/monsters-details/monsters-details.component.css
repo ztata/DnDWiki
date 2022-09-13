@@ -4,14 +4,3 @@ img{
 .title{
     font-family: 'Eagle Lake', cursive;
 }
-
-
-/*  dl {
-    display: grid;
-    grid-template-rows: auto auto;
-    grid-auto-columns: 1fr;
-    grid-auto-flow: column;
-} 
-
-dt{ float: left; }
-dd{ float: right; } */

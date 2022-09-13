@@ -9,22 +9,18 @@ export class RacesService {
   constructor(private http: HttpClient) { }
   private raceListApiUri = "https://www.dnd5eapi.co/api/races";
   private subraceUri = "https://www.dnd5eapi.co/api/subraces";
-  
 
-
-  //return list of classes
-  ReturnRaceList(){
+  ReturnRaceList() {
     return this.http.get(this.raceListApiUri);
   }
 
- //returns single class details
- ReturnRaceDetails(name: string){
-  return this.http.get(`${this.raceListApiUri}/${name}`);
- }
+  ReturnRaceDetails(name: string) {
+    return this.http.get(`${this.raceListApiUri}/${name}`);
+  }
 
- ReturnSubraceDetails(name: string){
-  return this.http.get(`${this.subraceUri}/${name}`)
- }
+  ReturnSubraceDetails(name: string) {
+    return this.http.get(`${this.subraceUri}/${name}`)
+  }
 
 
 }

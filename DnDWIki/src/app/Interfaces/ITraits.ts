@@ -1,6 +1,6 @@
 import { IApiResult } from "./IApiResult";
 
-export interface ITraits{
+export interface ITraits {
     name: string,
     index: string,
     races: IApiResult[],

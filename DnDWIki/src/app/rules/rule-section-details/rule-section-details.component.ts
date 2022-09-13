@@ -19,7 +19,7 @@ export class RuleSectionDetailsComponent implements OnInit {
     this.service.ReturnRulesDetails(this.ruleSection).subscribe(
       data => {
         this.section = data
-        this.section.subsections.forEach(element =>{
+        this.section.subsections.forEach(element => {
           let item = {};
           this.service.ReturnGeneralRuleDetails(element.index).subscribe(
             result => {
@@ -31,5 +31,4 @@ export class RuleSectionDetailsComponent implements OnInit {
       }
     )
   }
-
 }

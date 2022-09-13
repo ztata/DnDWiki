@@ -18,7 +18,6 @@ export class FeaturesComponent implements OnInit {
     { id: 'd', features: [] },
     { id: 'e', features: [] },
     { id: 'f', features: [] },
-    //{ id: 'g', features: [] },
     { id: 'h', features: [] },
     { id: 'i', features: [] },
     { id: 'j', features: [] },
@@ -35,16 +34,12 @@ export class FeaturesComponent implements OnInit {
     { id: 'u', features: [] },
     { id: 'v', features: [] },
     { id: 'w', features: [] },
-    //{ id: 'x', features: [] },
-    //{ id: 'y', features: [] },
-    //{ id: 'z', features: [] }
   ];
 
 
   ngOnInit(): void {
     this.service.ReturnFeaturesList().subscribe(data => {
       this.unsortedList = data
-      console.log(this.unsortedList)
       for (let i = 0; i < this.sortedList.length; i++) {
         let firstLetter: string = this.sortedList[i].id;
 
@@ -57,17 +52,14 @@ export class FeaturesComponent implements OnInit {
       }
       this.sortedList.forEach(element => {
         this.PopulateList(element.features)
-      }) 
-      
-      console.log(this.sortedList)
-
+      })
     })
   }
 
   PopulateList(inputList: any[]) {
     for (let i = 0; i < inputList?.length; i++) {
-      this.service.ReturnFeatureDetails(inputList[i]).subscribe(data => {inputList[i] = data});
+      this.service.ReturnFeatureDetails(inputList[i]).subscribe(data => { inputList[i] = data });
     };
     return inputList;
-}
+  }
 }

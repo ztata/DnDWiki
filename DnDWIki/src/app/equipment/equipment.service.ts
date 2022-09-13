@@ -10,34 +10,33 @@ export class EquipmentService {
 
   private magicItemsUri = "https://www.dnd5eapi.co/api/magic-items/";
   private itemCategoriesUri = "https://www.dnd5eapi.co/api/equipment-categories";
-  private itemsUri = "https://www.dnd5eapi.co/api/equipment";
   private weaponPropertiesUri = "https://www.dnd5eapi.co/api/weapon-properties";
 
-  ReturnMagicItemsList(){
+  ReturnMagicItemsList() {
     return this.http.get(`${this.magicItemsUri}`);
   }
 
-  ReturnMagicItemDetails(name: string){
+  ReturnMagicItemDetails(name: string) {
     return this.http.get(`${this.magicItemsUri}/${name}`);
   }
 
-  ReturnEquipmentCategoryList(){
+  ReturnEquipmentCategoryList() {
     return this.http.get(`${this.itemCategoriesUri}`);
   }
 
-  ReturnSingleEquipmentCategory(name: string){
+  ReturnSingleEquipmentCategory(name: string) {
     return this.http.get(`${this.itemCategoriesUri}/${name}`)
   }
 
-  ReturnItemDetails(uri: string){
+  ReturnItemDetails(uri: string) {
     return this.http.get(`https://www.dnd5eapi.co${uri}`)
   }
 
-  ReturnWeaponProperties(){
+  ReturnWeaponProperties() {
     return this.http.get(`${this.weaponPropertiesUri}`);
   }
 
-  ReturnWeaponPropertyDetails(name: string){
+  ReturnWeaponPropertyDetails(name: string) {
     return this.http.get(`${this.weaponPropertiesUri}/${name}`)
   }
 }

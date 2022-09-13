@@ -49,7 +49,6 @@ export class MonstersListComponent implements OnInit {
           if (element.index.startsWith(firstLetter)) {
             this.sortedList[i].features.push(element)
           }
-
         });
       }
     })

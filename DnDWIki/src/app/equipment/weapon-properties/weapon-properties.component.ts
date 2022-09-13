@@ -12,17 +12,17 @@ export class WeaponPropertiesComponent implements OnInit {
   constructor(private service: EquipmentService, private route: ActivatedRoute) { }
 
   propertyList = [
-    {index: "ammunition", name: "", desc: [], open:undefined},
-    {index: "finesse", name: "", desc: []},
-    {index: "heavy", name: "", desc: []},
-    {index: "light", name: "", desc: []},
-    {index: "loading", name: "", desc: []},
-    {index: "monk", name: "", desc: []},
-    {index: "reach", name: "", desc: []},
-    {index: "special", name: "", desc: []},
-    {index: "thrown", name: "", desc: []},
-    {index: "two-handed", name: "", desc: []},
-    {index: "versatile", name: "", desc: []},
+    { index: "ammunition", name: "", desc: [], open: undefined },
+    { index: "finesse", name: "", desc: [] },
+    { index: "heavy", name: "", desc: [] },
+    { index: "light", name: "", desc: [] },
+    { index: "loading", name: "", desc: [] },
+    { index: "monk", name: "", desc: [] },
+    { index: "reach", name: "", desc: [] },
+    { index: "special", name: "", desc: [] },
+    { index: "thrown", name: "", desc: [] },
+    { index: "two-handed", name: "", desc: [] },
+    { index: "versatile", name: "", desc: [] },
   ]
 
   currentProp: any;
@@ -34,19 +34,17 @@ export class WeaponPropertiesComponent implements OnInit {
 
   PopulateList(inputList: any[]) {
     for (let i = 0; i < inputList.length; i++) {
-      this.service.ReturnWeaponPropertyDetails(inputList[i].index).subscribe(data => 
-        {inputList[i] = data
-          if(inputList[i].index === this.currentProp){
-            inputList[i].open = true;
-          }
-          else{
-            inputList[i].open = false; 
-          }
-                 
-        });
+      this.service.ReturnWeaponPropertyDetails(inputList[i].index).subscribe(data => {
+        inputList[i] = data
+        if (inputList[i].index === this.currentProp) {
+          inputList[i].open = true;
+        }
+        else {
+          inputList[i].open = false;
+        }
+      });
     }
-    console.log(inputList)
     return inputList;
-  } 
+  }
 
 }

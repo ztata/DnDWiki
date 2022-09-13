@@ -1,11 +1,8 @@
-
-
 <div class="container">
     <div class="row mt-4 mb-3">
         <div class="col text-center">
             <h1 class="title"><strong>Rules By Category</strong></h1>
         </div>
-
     </div>
     <div class="row mt-3 mb-3">
         <div class="col">
@@ -13,9 +10,8 @@
         </div>
         <div class="col text-center">
             <ul class="list-group list-group-flush">
-                
-                    <li class="list-group-item list-group-item-action" *ngFor="let rule of ruleList?.results"><a [routerLink]="['/ruleSections', rule.index]" >{{rule.name}}</a></li>
-                
+                <li class="list-group-item list-group-item-action" *ngFor="let rule of ruleList?.results"><a
+                        [routerLink]="['/ruleSections', rule.index]">{{rule.name}}</a></li>
             </ul>
         </div>
         <div class="col">
@@ -23,7 +19,3 @@
         </div>
     </div>
 </div>
-
-          
-
-

@@ -13,35 +13,35 @@ export class RuleService {
   private generalRulesUri = "https://www.dnd5eapi.co/api/rule-sections";
   private rulesUri = "https://www.dnd5eapi.co/api/rules";
 
-  ReturnConditionList(){
+  ReturnConditionList() {
     return this.http.get(`${this.condtionUri}`)
   }
 
-  ReturnConditionDetail(name:string){
-    return this.http.get(`${this.condtionUri}/${name}`);  
+  ReturnConditionDetail(name: string) {
+    return this.http.get(`${this.condtionUri}/${name}`);
   }
 
-  ReturnDamageList(){
+  ReturnDamageList() {
     return this.http.get(`${this.damageUri}`)
   }
 
-  ReturnDamageDetails(name: string){
+  ReturnDamageDetails(name: string) {
     return this.http.get(`${this.damageUri}/${name}`)
   }
 
-  ReturnGeneralRules(){
+  ReturnGeneralRules() {
     return this.http.get(`${this.generalRulesUri}`);
   }
 
-  ReturnGeneralRuleDetails(name:string){
+  ReturnGeneralRuleDetails(name: string) {
     return this.http.get(`${this.generalRulesUri}/${name}`)
   }
 
-  ReturnRules(){
+  ReturnRules() {
     return this.http.get(`${this.rulesUri}`);
   }
 
-  ReturnRulesDetails(name: string){
+  ReturnRulesDetails(name: string) {
     return this.http.get(`${this.rulesUri}/${name}`);
   }
 }
